@@ -845,7 +845,7 @@
             <li><a href="/#features" class="navbar-link">✨ FEATURES</a></li>
             <li><a href="/#contact" class="navbar-link">📧 CONTACT</a></li>
         </ul>
-        <div class="navbar-cart" onclick="openCart()">
+        <div class="navbar-cart" onclick="openCartDrawer()">
             🛒
             <span class="cart-badge hidden" id="cartBadge">0</span>
         </div>
@@ -863,7 +863,7 @@
     <a href="/#custom" class="navbar-link">🎨 CUSTOM</a>
     <a href="/#features" class="navbar-link">✨ FEATURES</a>
     <a href="/#contact" class="navbar-link">📧 CONTACT</a>
-    <div class="navbar-cart" onclick="openCart(); toggleMobileMenu();">
+    <div class="navbar-cart" onclick="openCartDrawer(); toggleMobileMenu();">
         🛒
         <span class="cart-badge hidden" id="cartBadgeMobile">0</span>
     </div>
@@ -1766,7 +1766,7 @@ function updateCartBadge() {
     });
 }
 
-function openCart() {
+function openCartDrawer() {
     alert(cartCount === 0 ? '购物车是空的！快去选购吧 👾' : `购物车里有 ${cartCount} 个宝贝！`);
 }
 
