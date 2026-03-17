@@ -166,7 +166,7 @@ function updateCartUI() {
         `).join('');
     }
     
-    localStorage.setItem('holyMolyCart', JSON.stringify(cartData));
+    localStorage.setItem('holyMolyCartV2', JSON.stringify(cartData));
 }
 
 function updateAllCartBadges(count) {
@@ -211,10 +211,19 @@ window.openCartDrawer = openCartDrawer;
 window.addToCart = addToCart;
 window.updateAllCartBadges = updateAllCartBadges;
 
-// 恢复购物车
-const saved = localStorage.getItem('holyMolyCart');
+// 恢复购物车（用新key，忽略旧的预置数据）
+const saved = localStorage.getItem('holyMolyCartV2');
 if (saved) {
-    cartData = JSON.parse(saved);
+    try {
+        cartData = JSON.parse(saved);
+        if (!Array.isArray(cartData)) cartData = [];
+        updateCartUI();
+    } catch(e) {
+        cartData = [];
+        updateCartUI();
+    }
+} else {
+    cartData = [];
     updateCartUI();
 }
 </script>
