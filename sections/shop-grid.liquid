@@ -490,10 +490,12 @@
     opacity: 0;
     z-index: 5;
     transition: opacity 0.3s;
+    pointer-events: none;
 }
 
 .product-pixel-card:hover .quick-actions {
     opacity: 1;
+    pointer-events: all;
 }
 
 .quick-btn {
@@ -1012,7 +1014,7 @@
             <li><a href="/#features" class="navbar-link">✨ FEATURES</a></li>
             <li><a href="/#contact" class="navbar-link">📧 CONTACT</a></li>
         </ul>
-        <div class="navbar-cart" onclick="openCartDrawer()">
+        <div class="navbar-cart" onclick="openCart()">
             🛒
             <span class="cart-badge hidden" id="cartBadge">0</span>
         </div>
@@ -1030,7 +1032,7 @@
     <a href="/#custom" class="navbar-link">🎨 CUSTOM</a>
     <a href="/#features" class="navbar-link">✨ FEATURES</a>
     <a href="/#contact" class="navbar-link">📧 CONTACT</a>
-    <div class="navbar-cart" onclick="openCartDrawer(); toggleMobileMenu();">
+    <div class="navbar-cart" onclick="openCart(); toggleMobileMenu();">
         🛒
         <span class="cart-badge hidden" id="cartBadgeMobile">0</span>
     </div>
@@ -1081,10 +1083,10 @@
         <!-- 产品1 -->
         <div class="product-pixel-card" data-category="keychain" data-price="18" data-name="mario mushroom keychain" data-id="1">
             <div class="card-inner">
-                <button class="wishlist-btn" onclick="toggleWishlist(this, event)">♡</button>
-                <div class="quick-actions">
-                    <button class="quick-btn quick-view" onclick="quickView('Mario Mushroom Keychain', '🍄', '$18.00', event)">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCart(this, event)">🛒 ADD</button>
+                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+                <div class="quick-actions" onclick="event.stopPropagation()">
+                    <button class="quick-btn quick-view" onclick="quickView('Mario Mushroom Keychain', '🍄', '$18.00')">👁️ QUICK VIEW</button>
+                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
                 </div>
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background: linear-gradient(145deg, #FFE600, #FFB800);">
@@ -1113,10 +1115,10 @@
         <!-- 产品2 -->
         <div class="product-pixel-card" data-category="keychain" data-price="22" data-name="pikachu sprite keychain" data-id="2">
             <div class="card-inner">
-                <button class="wishlist-btn" onclick="toggleWishlist(this, event)">♡</button>
-                <div class="quick-actions">
-                    <button class="quick-btn quick-view" onclick="quickView('Pikachu Sprite Keychain', '⚡', '$22.00', event)">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCart(this, event)">🛒 ADD</button>
+                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+                <div class="quick-actions" onclick="event.stopPropagation()">
+                    <button class="quick-btn quick-view" onclick="quickView('Pikachu Sprite Keychain', '⚡', '$22.00')">👁️ QUICK VIEW</button>
+                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
                 </div>
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background: linear-gradient(135deg, #FF6B9D, #C44569);">
@@ -1145,10 +1147,10 @@
         <!-- 产品3 -->
         <div class="product-pixel-card" data-category="magnet" data-price="28" data-name="retro controller magnet" data-id="3">
             <div class="card-inner">
-                <button class="wishlist-btn" onclick="toggleWishlist(this, event)">♡</button>
-                <div class="quick-actions">
-                    <button class="quick-btn quick-view" onclick="quickView('Retro Controller Magnet', '🎮', '$28.00', event)">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCart(this, event)">🛒 ADD</button>
+                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+                <div class="quick-actions" onclick="event.stopPropagation()">
+                    <button class="quick-btn quick-view" onclick="quickView('Retro Controller Magnet', '🎮', '$28.00')">👁️ QUICK VIEW</button>
+                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
                 </div>
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background: linear-gradient(135deg, #4ECDC4, #44A3AA);">
@@ -1178,10 +1180,10 @@
         <!-- 产品4 -->
         <div class="product-pixel-card" data-category="keychain" data-price="15" data-name="star power keychain" data-id="4">
             <div class="card-inner">
-                <button class="wishlist-btn" onclick="toggleWishlist(this, event)">♡</button>
-                <div class="quick-actions">
-                    <button class="quick-btn quick-view" onclick="quickView('Star Power Keychain', '⭐', '$15.00', event)">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCart(this, event)">🛒 ADD</button>
+                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+                <div class="quick-actions" onclick="event.stopPropagation()">
+                    <button class="quick-btn quick-view" onclick="quickView('Star Power Keychain', '⭐', '$15.00')">👁️ QUICK VIEW</button>
+                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
                 </div>
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background: linear-gradient(135deg, #FFD93D, #FFA502);">
@@ -1210,10 +1212,10 @@
         <!-- 产品5 -->
         <div class="product-pixel-card" data-category="diy" data-price="45" data-name="pixel art starter kit" data-id="5">
             <div class="card-inner">
-                <button class="wishlist-btn" onclick="toggleWishlist(this, event)">♡</button>
-                <div class="quick-actions">
-                    <button class="quick-btn quick-view" onclick="quickView('Pixel Art Starter Kit', '🎨', '$45.00', event)">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCart(this, event)">🛒 ADD</button>
+                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+                <div class="quick-actions" onclick="event.stopPropagation()">
+                    <button class="quick-btn quick-view" onclick="quickView('Pixel Art Starter Kit', '🎨', '$45.00')">👁️ QUICK VIEW</button>
+                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
                 </div>
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background: linear-gradient(135deg, #9D4EDD, #FF6B6B);">
@@ -1242,10 +1244,10 @@
         <!-- 产品6 -->
         <div class="product-pixel-card" data-category="keychain" data-price="20" data-name="link sword keychain" data-id="6">
             <div class="card-inner">
-                <button class="wishlist-btn" onclick="toggleWishlist(this, event)">♡</button>
-                <div class="quick-actions">
-                    <button class="quick-btn quick-view" onclick="quickView('Link Sword Keychain', '⚔️', '$20.00', event)">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCart(this, event)">🛒 ADD</button>
+                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+                <div class="quick-actions" onclick="event.stopPropagation()">
+                    <button class="quick-btn quick-view" onclick="quickView('Link Sword Keychain', '⚔️', '$20.00')">👁️ QUICK VIEW</button>
+                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
                 </div>
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background: linear-gradient(135deg, #74B9FF, #0984E3);">
@@ -1273,10 +1275,10 @@
         <!-- 产品7 -->
         <div class="product-pixel-card" data-category="magnet" data-price="25" data-name="pacman ghost magnet set" data-id="7">
             <div class="card-inner">
-                <button class="wishlist-btn" onclick="toggleWishlist(this, event)">♡</button>
-                <div class="quick-actions">
-                    <button class="quick-btn quick-view" onclick="quickView('Pacman Ghost Magnet Set', '👻', '$25.00', event)">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCart(this, event)">🛒 ADD</button>
+                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+                <div class="quick-actions" onclick="event.stopPropagation()">
+                    <button class="quick-btn quick-view" onclick="quickView('Pacman Ghost Magnet Set', '👻', '$25.00')">👁️ QUICK VIEW</button>
+                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
                 </div>
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background: linear-gradient(135deg, #FF7675, #D63031);">
@@ -1305,10 +1307,10 @@
         <!-- 产品8 -->
         <div class="product-pixel-card" data-category="keychain" data-price="19" data-name="pokeball keychain" data-id="8">
             <div class="card-inner">
-                <button class="wishlist-btn" onclick="toggleWishlist(this, event)">♡</button>
-                <div class="quick-actions">
-                    <button class="quick-btn quick-view" onclick="quickView('Pokeball Keychain', '🔴', '$19.00', event)">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCart(this, event)">🛒 ADD</button>
+                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+                <div class="quick-actions" onclick="event.stopPropagation()">
+                    <button class="quick-btn quick-view" onclick="quickView('Pokeball Keychain', '🔴', '$19.00')">👁️ QUICK VIEW</button>
+                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
                 </div>
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background: linear-gradient(135deg, #FFFFFF, #FF0000);">
@@ -1336,10 +1338,10 @@
         <!-- 产品9 -->
         <div class="product-pixel-card" data-category="diy" data-price="38" data-name="space invaders bead kit" data-id="9">
             <div class="card-inner">
-                <button class="wishlist-btn" onclick="toggleWishlist(this, event)">♡</button>
-                <div class="quick-actions">
-                    <button class="quick-btn quick-view" onclick="quickView('Space Invaders Bead Kit', '👾', '$38.00', event)">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCart(this, event)">🛒 ADD</button>
+                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+                <div class="quick-actions" onclick="event.stopPropagation()">
+                    <button class="quick-btn quick-view" onclick="quickView('Space Invaders Bead Kit', '👾', '$38.00')">👁️ QUICK VIEW</button>
+                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
                 </div>
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background: linear-gradient(135deg, #00B894, #00CEC9);">
@@ -1369,10 +1371,10 @@
         <!-- 产品10 -->
         <div class="product-pixel-card" data-category="magnet" data-price="32" data-name="tetris block magnets" data-id="10">
             <div class="card-inner">
-                <button class="wishlist-btn" onclick="toggleWishlist(this, event)">♡</button>
-                <div class="quick-actions">
-                    <button class="quick-btn quick-view" onclick="quickView('Tetris Block Magnets', '🧱', '$32.00', event)">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCart(this, event)">🛒 ADD</button>
+                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+                <div class="quick-actions" onclick="event.stopPropagation()">
+                    <button class="quick-btn quick-view" onclick="quickView('Tetris Block Magnets', '🧱', '$32.00')">👁️ QUICK VIEW</button>
+                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
                 </div>
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background: linear-gradient(135deg, #A29BFE, #6C5CE7);">
@@ -1400,10 +1402,10 @@
         <!-- 产品11 -->
         <div class="product-pixel-card" data-category="keychain" data-price="24" data-name="sonic ring keychain" data-id="11">
             <div class="card-inner">
-                <button class="wishlist-btn" onclick="toggleWishlist(this, event)">♡</button>
-                <div class="quick-actions">
-                    <button class="quick-btn quick-view" onclick="quickView('Sonic Ring Keychain', '💍', '$24.00', event)">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCart(this, event)">🛒 ADD</button>
+                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+                <div class="quick-actions" onclick="event.stopPropagation()">
+                    <button class="quick-btn quick-view" onclick="quickView('Sonic Ring Keychain', '💍', '$24.00')">👁️ QUICK VIEW</button>
+                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
                 </div>
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background: linear-gradient(135deg, #FDCB6E, #E17055);">
@@ -1432,10 +1434,10 @@
         <!-- 产品12 -->
         <div class="product-pixel-card" data-category="keychain" data-price="16" data-name="heart container keychain" data-id="12">
             <div class="card-inner">
-                <button class="wishlist-btn" onclick="toggleWishlist(this, event)">♡</button>
-                <div class="quick-actions">
-                    <button class="quick-btn quick-view" onclick="quickView('Heart Container Keychain', '❤️', '$16.00', event)">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCart(this, event)">🛒 ADD</button>
+                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+                <div class="quick-actions" onclick="event.stopPropagation()">
+                    <button class="quick-btn quick-view" onclick="quickView('Heart Container Keychain', '❤️', '$16.00')">👁️ QUICK VIEW</button>
+                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
                 </div>
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background: linear-gradient(135deg, #FF6B9D, #C44569);">
@@ -1463,10 +1465,10 @@
         <!-- 产品13 -->
         <div class="product-pixel-card" data-category="magnet" data-price="30" data-name="8bit character magnets" data-id="13">
             <div class="card-inner">
-                <button class="wishlist-btn" onclick="toggleWishlist(this, event)">♡</button>
-                <div class="quick-actions">
-                    <button class="quick-btn quick-view" onclick="quickView('8-Bit Character Magnets', '🦸', '$30.00', event)">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCart(this, event)">🛒 ADD</button>
+                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+                <div class="quick-actions" onclick="event.stopPropagation()">
+                    <button class="quick-btn quick-view" onclick="quickView('8-Bit Character Magnets', '🦸', '$30.00')">👁️ QUICK VIEW</button>
+                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
                 </div>
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background: linear-gradient(135deg, #74B9FF, #0984E3);">
@@ -1495,10 +1497,10 @@
         <!-- 产品14 -->
         <div class="product-pixel-card" data-category="diy" data-price="55" data-name="custom portrait kit" data-id="14">
             <div class="card-inner">
-                <button class="wishlist-btn" onclick="toggleWishlist(this, event)">♡</button>
-                <div class="quick-actions">
-                    <button class="quick-btn quick-view" onclick="quickView('Custom Portrait Kit', '🖼️', '$55.00', event)">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCart(this, event)">🛒 ADD</button>
+                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+                <div class="quick-actions" onclick="event.stopPropagation()">
+                    <button class="quick-btn quick-view" onclick="quickView('Custom Portrait Kit', '🖼️', '$55.00')">👁️ QUICK VIEW</button>
+                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
                 </div>
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background: linear-gradient(135deg, #FD79A8, #E84393);">
@@ -1528,10 +1530,10 @@
         <!-- 产品15 -->
         <div class="product-pixel-card" data-category="keychain" data-price="21" data-name="diamond pickaxe keychain" data-id="15">
             <div class="card-inner">
-                <button class="wishlist-btn" onclick="toggleWishlist(this, event)">♡</button>
-                <div class="quick-actions">
-                    <button class="quick-btn quick-view" onclick="quickView('Diamond Pickaxe Keychain', '⛏️', '$21.00', event)">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCart(this, event)">🛒 ADD</button>
+                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+                <div class="quick-actions" onclick="event.stopPropagation()">
+                    <button class="quick-btn quick-view" onclick="quickView('Diamond Pickaxe Keychain', '⛏️', '$21.00')">👁️ QUICK VIEW</button>
+                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
                 </div>
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background: linear-gradient(135deg, #00CEC9, #81ECEC);">
@@ -1560,10 +1562,10 @@
         <!-- 产品16 -->
         <div class="product-pixel-card" data-category="magnet" data-price="27" data-name="pixel food magnet set" data-id="16">
             <div class="card-inner">
-                <button class="wishlist-btn" onclick="toggleWishlist(this, event)">♡</button>
-                <div class="quick-actions">
-                    <button class="quick-btn quick-view" onclick="quickView('Pixel Food Magnet Set', '🍕', '$27.00', event)">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCart(this, event)">🛒 ADD</button>
+                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+                <div class="quick-actions" onclick="event.stopPropagation()">
+                    <button class="quick-btn quick-view" onclick="quickView('Pixel Food Magnet Set', '🍕', '$27.00')">👁️ QUICK VIEW</button>
+                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
                 </div>
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background: linear-gradient(135deg, #FDCB6E, #E17055);">
@@ -1591,10 +1593,10 @@
         <!-- 产品17 -->
         <div class="product-pixel-card" data-category="keychain" data-price="23" data-name="yoshi egg keychain" data-id="17">
             <div class="card-inner">
-                <button class="wishlist-btn" onclick="toggleWishlist(this, event)">♡</button>
-                <div class="quick-actions">
-                    <button class="quick-btn quick-view" onclick="quickView('Yoshi Egg Keychain', '🥚', '$23.00', event)">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCart(this, event)">🛒 ADD</button>
+                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+                <div class="quick-actions" onclick="event.stopPropagation()">
+                    <button class="quick-btn quick-view" onclick="quickView('Yoshi Egg Keychain', '🥚', '$23.00')">👁️ QUICK VIEW</button>
+                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
                 </div>
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background: linear-gradient(135deg, #FFFFFF, #00B894);">
@@ -1622,10 +1624,10 @@
         <!-- 产品18 -->
         <div class="product-pixel-card" data-category="diy" data-price="42" data-name="retro game cartridge kit" data-id="18">
             <div class="card-inner">
-                <button class="wishlist-btn" onclick="toggleWishlist(this, event)">♡</button>
-                <div class="quick-actions">
-                    <button class="quick-btn quick-view" onclick="quickView('Retro Game Cartridge Kit', '🎲', '$42.00', event)">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCart(this, event)">🛒 ADD</button>
+                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+                <div class="quick-actions" onclick="event.stopPropagation()">
+                    <button class="quick-btn quick-view" onclick="quickView('Retro Game Cartridge Kit', '🎲', '$42.00')">👁️ QUICK VIEW</button>
+                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
                 </div>
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background: linear-gradient(135deg, #636E72, #2D3436);">
@@ -1654,10 +1656,10 @@
         <!-- 产品19 -->
         <div class="product-pixel-card" data-category="keychain" data-price="17" data-name="coin block keychain" data-id="19">
             <div class="card-inner">
-                <button class="wishlist-btn" onclick="toggleWishlist(this, event)">♡</button>
-                <div class="quick-actions">
-                    <button class="quick-btn quick-view" onclick="quickView('Coin Block Keychain', '🪙', '$17.00', event)">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCart(this, event)">🛒 ADD</button>
+                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+                <div class="quick-actions" onclick="event.stopPropagation()">
+                    <button class="quick-btn quick-view" onclick="quickView('Coin Block Keychain', '🪙', '$17.00')">👁️ QUICK VIEW</button>
+                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
                 </div>
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background: linear-gradient(135deg, #FDCB6E, #F39C12);">
@@ -1687,10 +1689,10 @@
         <!-- 产品20 -->
         <div class="product-pixel-card" data-category="magnet" data-price="35" data-name="pixel pet magnets" data-id="20">
             <div class="card-inner">
-                <button class="wishlist-btn" onclick="toggleWishlist(this, event)">♡</button>
-                <div class="quick-actions">
-                    <button class="quick-btn quick-view" onclick="quickView('Pixel Pet Magnets', '🐱', '$35.00', event)">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCart(this, event)">🛒 ADD</button>
+                <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
+                <div class="quick-actions" onclick="event.stopPropagation()">
+                    <button class="quick-btn quick-view" onclick="quickView('Pixel Pet Magnets', '🐱', '$35.00')">👁️ QUICK VIEW</button>
+                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
                 </div>
                 <div class="card-image-wrapper">
                     <div class="card-image" style="background: linear-gradient(135deg, #E17055, #D63031);">
@@ -1739,7 +1741,7 @@
 </div>
 
 <script>
-// ========== 完整JavaScript ==========
+// ========== 修复后的JavaScript ==========
 let cartCount = 0;
 let currentModalProduct = {};
 
@@ -1866,9 +1868,8 @@ function searchProducts() {
     });
 }
 
-// 收藏
-function toggleWishlist(btn, e) {
-    e.stopPropagation();
+// 收藏 - 修复：移除e参数，直接传this
+function toggleWishlist(btn) {
     btn.classList.toggle('active');
     btn.innerHTML = btn.classList.contains('active') ? '♥' : '♡';
     
@@ -1878,9 +1879,8 @@ function toggleWishlist(btn, e) {
     }
 }
 
-// 快速预览
-function quickView(title, emoji, price, e) {
-    e.stopPropagation();
+// 快速预览 - 修复：移除event参数
+function quickView(title, emoji, price) {
     currentModalProduct = { title, emoji, price };
     
     document.getElementById('modalTitle').textContent = title;
@@ -1896,20 +1896,41 @@ function closeQuickView() {
     document.body.style.overflow = '';
 }
 
-function addToCartFromModal() {
-    const btn = document.querySelector('.modal-add-btn');
-    addToCart({ target: btn, stopPropagation: () => {} });
+// 新增：从产品卡片添加到购物车
+function addToCartFromProduct(btn) {
+    // 阻止事件冒泡
+    event.stopPropagation();
+    
+    const originalText = btn.innerHTML;
+    
+    // 按钮动画
+    btn.innerHTML = '✓ ADDED!';
+    btn.style.background = '#00FF00';
+    btn.style.transform = 'scale(1.05)';
+    
+    // 更新购物车
+    cartCount++;
+    updateCartBadge();
+    
+    // 粒子效果
+    createPixelBurst(btn);
+    
+    // 恢复按钮
+    setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '';
+        btn.style.transform = '';
+    }, 1500);
 }
 
-// 加入购物车
-function addToCart(e) {
-    e.stopPropagation();
-    const btn = e.target;
+// 新增：从模态框添加到购物车
+function addToCartFromModal() {
+    const btn = document.querySelector('.modal-add-btn');
     const originalText = btn.innerHTML;
     
     btn.innerHTML = '✓ ADDED!';
     btn.style.background = '#00FF00';
-    btn.style.transform = 'scale(1.1)';
+    btn.style.transform = 'scale(1.05)';
     
     cartCount++;
     updateCartBadge();
@@ -1919,22 +1940,38 @@ function addToCart(e) {
         btn.innerHTML = originalText;
         btn.style.background = '';
         btn.style.transform = '';
-    }, 1500);
+        
+        // 关闭模态框
+        closeQuickView();
+    }, 1200);
 }
 
+// 更新购物车徽章
 function updateCartBadge() {
     document.querySelectorAll('.cart-badge').forEach(badge => {
         badge.textContent = cartCount;
         badge.classList.remove('hidden');
         badge.style.animation = 'badgeBounce 0.5s ease';
     });
+    
+    // 同时更新 localStorage 用于跨页面同步
+    localStorage.setItem('holyMolyCartCount', cartCount);
 }
 
-function openCartDrawer() {
-    if (typeof window.openCartDrawer === 'function') {
+// 修复：购物车点击打开抽屉或提示
+function openCart() {
+    // 检查是否存在购物车抽屉组件
+    const cartDrawer = document.getElementById('cartDrawer');
+    
+    if (cartDrawer && typeof window.openCartDrawer === 'function') {
         window.openCartDrawer();
     } else {
-        alert(cartCount === 0 ? '购物车是空的！快去选购吧 👾' : `购物车里有 ${cartCount} 个宝贝！`);
+        // 简单的提示，如果有商品则显示数量
+        if (cartCount === 0) {
+            alert('🛒 购物车是空的！快去选购吧 👾');
+        } else {
+            alert(`🛒 购物车里有 ${cartCount} 个宝贝！总计 $${(cartCount * 20).toFixed(2)}`);
+        }
     }
 }
 
@@ -1975,5 +2012,16 @@ document.querySelectorAll('.product-pixel-card').forEach(card => observer.observ
 // ESC关闭模态框
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeQuickView();
+});
+
+// 页面加载时恢复购物车数量
+document.addEventListener('DOMContentLoaded', () => {
+    const savedCount = localStorage.getItem('holyMolyCartCount');
+    if (savedCount) {
+        cartCount = parseInt(savedCount);
+        if (cartCount > 0) {
+            updateCartBadge();
+        }
+    }
 });
 </script>
