@@ -22,7 +22,7 @@
 
 <!-- Main Site -->
 <div id="main-site">
-  <!-- NAVIGATION -->
+  <!-- NAVIGATION - 添加 HOMESTEAD -->
   <nav class="navbar" id="navbar">
     <div class="navbar-container">
       <a href="#" class="navbar-logo" onclick="scrollToTop(event)">
@@ -30,6 +30,7 @@
         <span>HOLY MOLY</span>
       </a>
       <ul class="navbar-menu">
+        <li><a href="/" class="navbar-link">🏠 HOMESTEAD</a></li>
         <li><a href="#products" class="navbar-link" onclick="smoothScroll(event, 'products')">🛒 SHOP</a></li>
         <li><a href="#custom" class="navbar-link" onclick="smoothScroll(event, 'custom')">🎨 CUSTOM</a></li>
         <li><a href="#features" class="navbar-link" onclick="smoothScroll(event, 'features')">✨ FEATURES</a></li>
@@ -47,8 +48,9 @@
     </div>
   </nav>
 
-  <!-- Mobile Menu -->
+  <!-- Mobile Menu - 添加 HOMESTEAD -->
   <div class="mobile-menu" id="mobileMenu">
+    <a href="/" class="navbar-link" onclick="toggleMobileMenu();">🏠 HOMESTEAD</a>
     <a href="#products" class="navbar-link" onclick="smoothScroll(event, 'products'); toggleMobileMenu();">🛒 SHOP</a>
     <a href="#custom" class="navbar-link" onclick="smoothScroll(event, 'custom'); toggleMobileMenu();">🎨 CUSTOM</a>
     <a href="#features" class="navbar-link" onclick="smoothScroll(event, 'features'); toggleMobileMenu();">✨ FEATURES</a>
@@ -137,6 +139,7 @@
       
       <div class="carousel-viewport">
         <div class="carousel-track" id="carouselTrack">
+          
           <!-- 产品1 -->
           <div class="carousel-card" data-index="0">
             <div class="carousel-card-inner" onclick="window.location.href='/pages/shop'">
@@ -251,7 +254,6 @@
       <button class="carousel-nav next" onclick="moveCarousel(1)">▶</button>
     </div>
 
-    <!-- CTA 按钮 -->
     <div class="go-to-shop-container">
       <a href="/pages/shop" class="go-to-shop-btn">
         <span>🎁</span>
@@ -322,6 +324,48 @@
 </div>
 
 <style>
+/* ===== 导航栏样式（已包含 HOMESTEAD） ===== */
+.navbar-menu {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-link {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  padding: 12px 14px;
+  position: relative;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.navbar-link:hover,
+.navbar-link.active {
+  color: #FFE600;
+}
+
+/* 响应式：小屏幕缩小字体 */
+@media (max-width: 1100px) {
+  .navbar-link {
+    font-size: 9px;
+    padding: 12px 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar-menu {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
 /* ===== 无限循环滑动区域样式 ===== */
 .carousel-container {
   position: relative;
@@ -353,7 +397,6 @@
   will-change: transform;
 }
 
-/* 滑动卡片 - 修复裁切 */
 .carousel-card {
   flex: 0 0 calc(25% - 15px);
   min-width: 280px;
@@ -488,7 +531,6 @@
   background: #00D9FF;
 }
 
-/* 导航箭头 */
 .carousel-nav {
   width: 50px;
   height: 50px;
@@ -519,7 +561,6 @@
   box-shadow: 2px 2px 0 #000;
 }
 
-/* CTA 按钮 */
 .go-to-shop-container {
   text-align: center;
   margin-top: 50px;
@@ -552,7 +593,6 @@
 .go-to-shop-btn span:last-child { font-size: 20px; transition: transform 0.3s; }
 .go-to-shop-btn:hover span:last-child { transform: translateX(8px); }
 
-/* 响应式 */
 @media (max-width: 1200px) {
   .carousel-card { flex: 0 0 calc(33.333% - 14px); min-width: 260px; }
 }
@@ -577,7 +617,6 @@
 </style>
 
 <script>
-// Loading Animation
 var pixelGrid = document.getElementById('pixelGrid');
 var activePixels = [0,1,2,3, 8,9,10,11, 16,17,18,19, 24,25,26,27, 33,34, 41,42, 49,50, 56,57,58,59];
 if (pixelGrid) {
@@ -605,7 +644,6 @@ setTimeout(function() {
   }, 500);
 }, 2500);
 
-// Mobile Menu
 function toggleMobileMenu() {
   var menu = document.getElementById('mobileMenu');
   var hamburger = document.getElementById('hamburger');
@@ -615,7 +653,6 @@ function toggleMobileMenu() {
   }
 }
 
-// Custom Cursor
 var cursor = document.getElementById('cursor');
 var cursorDot = document.getElementById('cursorDot');
 if (cursor && cursorDot) {
@@ -632,7 +669,6 @@ if (cursor && cursorDot) {
   });
 }
 
-// Click Ripple
 document.addEventListener('click', function(e) {
   var ripple = document.createElement('div');
   ripple.className = 'click-ripple';
@@ -642,7 +678,6 @@ document.addEventListener('click', function(e) {
   setTimeout(function() { ripple.remove(); }, 600);
 });
 
-// Mascot Tilt
 var mascot = document.getElementById('mascot');
 var mascotContainer = document.getElementById('mascotContainer');
 if (mascot && mascotContainer) {
@@ -731,7 +766,6 @@ function openCart() {
   }
 }
 
-// ===== 无限循环轮播 =====
 var currentIndex = 0;
 var totalItems = 6;
 var visibleItems = 4;
@@ -762,9 +796,7 @@ function setupCarouselEvents() {
   
   var isDragging = false;
   var startPos = 0;
-  var currentTranslate = 0;
   
-  // 鼠标事件
   viewport.addEventListener('mousedown', function(e) {
     isDragging = true;
     startPos = e.pageX;
@@ -805,7 +837,6 @@ function setupCarouselEvents() {
     }
   });
   
-  // 触摸事件
   viewport.addEventListener('touchstart', function(e) {
     startPos = e.touches[0].clientX;
     track.style.transition = 'none';
@@ -828,10 +859,7 @@ function setupCarouselEvents() {
     startAutoPlay();
   });
   
-  // 防止选中
   viewport.addEventListener('selectstart', function(e) { e.preventDefault(); });
-  
-  // 悬停暂停
   viewport.addEventListener('mouseenter', stopAutoPlay);
   viewport.addEventListener('mouseleave', startAutoPlay);
 }
@@ -839,7 +867,6 @@ function setupCarouselEvents() {
 function moveCarousel(direction) {
   currentIndex += direction;
   
-  // 无限循环逻辑
   if (currentIndex >= totalItems) currentIndex = 0;
   if (currentIndex < 0) currentIndex = totalItems - 1;
   
@@ -875,7 +902,6 @@ function stopAutoPlay() {
   if (autoPlayInterval) clearInterval(autoPlayInterval);
 }
 
-// Scroll Animations
 var observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
 var observer = new IntersectionObserver(function(entries) {
   entries.forEach(function(entry) {
@@ -893,7 +919,6 @@ document.querySelectorAll('.feature-card').forEach(function(el) {
   observer.observe(el);
 });
 
-// Navbar Scroll
 var navbar = document.getElementById('navbar');
 if (navbar) {
   window.addEventListener('scroll', function() {
@@ -901,7 +926,6 @@ if (navbar) {
   });
 }
 
-// Active Link
 var sections = ['products', 'features', 'custom', 'contact'];
 var navLinks = document.querySelectorAll('.navbar-link');
 window.addEventListener('scroll', function() {
@@ -920,7 +944,6 @@ window.addEventListener('scroll', function() {
   });
 });
 
-// Hide cursor on touch
 if ('ontouchstart' in window) {
   if (cursor) cursor.style.display = 'none';
   if (cursorDot) cursorDot.style.display = 'none';
