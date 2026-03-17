@@ -466,11 +466,13 @@
               <span class="summary-value total-value">{{ cart.total_price | money }}</span>
             </div>
 
-            <form action="/cart" method="post" novalidate>
-              <button type="submit" name="checkout" class="checkout-btn">
-                ▶ PROCEED TO CHECKOUT
-              </button>
-            </form>
+           <form action="/cart" method="post" novalidate>
+  <input type="hidden" name="utf8" value="✓">
+  <input type="hidden" name="authenticity_token" value="{{ form.authenticity_token }}">
+  <button type="submit" name="checkout" class="checkout-btn">
+    ▶ PROCEED TO CHECKOUT
+  </button>
+</form>
 
             <div class="continue-shopping">
               <a href="/pages/shop" class="continue-link">← CONTINUE SHOPPING</a>
