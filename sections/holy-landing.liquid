@@ -2,18 +2,18 @@
 
 <!-- Loading Screen -->
 <div id="loader">
-    <div class="loader-container">
-        <div class="pixel-grid" id="pixelGrid"></div>
-    </div>
-    <div class="loader-text">ASSEMBLING BEADS...</div>
-    <div class="loader-progress">
-        <div class="loader-bar"></div>
-    </div>
+  <div class="loader-container">
+    <div class="pixel-grid" id="pixelGrid"></div>
+  </div>
+  <div class="loader-text">ASSEMBLING BEADS...</div>
+  <div class="loader-progress">
+    <div class="loader-bar"></div>
+  </div>
 </div>
 
 <!-- Intro Explosion -->
 <div id="intro">
-    <div class="intro-text">READY!</div>
+  <div class="intro-text">READY!</div>
 </div>
 
 <!-- Custom Cursor -->
@@ -22,484 +22,935 @@
 
 <!-- Main Site -->
 <div id="main-site">
-    <!-- NAVIGATION -->
-    <nav class="navbar" id="navbar">
-        <div class="navbar-container">
-            <a href="#" class="navbar-logo" onclick="scrollToTop(event)">
-                <span class="navbar-logo-icon">👾</span>
-                <span>HOLY MOLY</span>
-            </a>
-            <ul class="navbar-menu">
-                <li><a href="#products" class="navbar-link" onclick="smoothScroll(event, 'products')">🛒 SHOP</a></li>
-                <li><a href="#custom" class="navbar-link" onclick="smoothScroll(event, 'custom')">🎨 CUSTOM</a></li>
-                <li><a href="#features" class="navbar-link" onclick="smoothScroll(event, 'features')">✨ FEATURES</a></li>
-                <li><a href="#contact" class="navbar-link" onclick="smoothScroll(event, 'contact')">📧 CONTACT</a></li>
-            </ul>
-            <div class="navbar-cart" onclick="openCart()">
-                🛒
-                <span class="cart-badge hidden" id="cartBadge">0</span>
-            </div>
-            <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
-        </div>
-    </nav>
+  <!-- NAVIGATION -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-container">
+      <a href="#" class="navbar-logo" onclick="scrollToTop(event)">
+        <span class="navbar-logo-icon">👾</span>
+        <span>HOLY MOLY</span>
+      </a>
+      <ul class="navbar-menu">
+        <li><a href="#products" class="navbar-link" onclick="smoothScroll(event, 'products')">🛒 SHOP</a></li>
+        <li><a href="#custom" class="navbar-link" onclick="smoothScroll(event, 'custom')">🎨 CUSTOM</a></li>
+        <li><a href="#features" class="navbar-link" onclick="smoothScroll(event, 'features')">✨ FEATURES</a></li>
+        <li><a href="#contact" class="navbar-link" onclick="smoothScroll(event, 'contact')">📧 CONTACT</a></li>
+      </ul>
+      <div class="navbar-cart" onclick="openCart()">
+        🛒
+        <span class="cart-badge hidden" id="cartBadge">0</span>
+      </div>
+      <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </nav>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#products" class="navbar-link" onclick="smoothScroll(event, 'products'); toggleMobileMenu();">🛒 SHOP</a>
-        <a href="#custom" class="navbar-link" onclick="smoothScroll(event, 'custom'); toggleMobileMenu();">🎨 CUSTOM</a>
-        <a href="#features" class="navbar-link" onclick="smoothScroll(event, 'features'); toggleMobileMenu();">✨ FEATURES</a>
-        <a href="#contact" class="navbar-link" onclick="smoothScroll(event, 'contact'); toggleMobileMenu();">📧 CONTACT</a>
-        <div class="navbar-cart" onclick="openCart(); toggleMobileMenu();">
-            🛒
-            <span class="cart-badge hidden" id="cartBadgeMobile">0</span>
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#products" class="navbar-link" onclick="smoothScroll(event, 'products'); toggleMobileMenu();">🛒 SHOP</a>
+    <a href="#custom" class="navbar-link" onclick="smoothScroll(event, 'custom'); toggleMobileMenu();">🎨 CUSTOM</a>
+    <a href="#features" class="navbar-link" onclick="smoothScroll(event, 'features'); toggleMobileMenu();">✨ FEATURES</a>
+    <a href="#contact" class="navbar-link" onclick="smoothScroll(event, 'contact'); toggleMobileMenu();">📧 CONTACT</a>
+    <div class="navbar-cart" onclick="openCart(); toggleMobileMenu();">
+      🛒
+      <span class="cart-badge hidden" id="cartBadgeMobile">0</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="floating-beads">
+      <div class="fbead"></div>
+      <div class="fbead"></div>
+      <div class="fbead"></div>
+      <div class="fbead"></div>
+      <div class="fbead"></div>
+      <div class="fbead"></div>
+    </div>
+    <div class="hero-content">
+      <h1 class="glitch-title">HOLY MOLY!</h1>
+      <div class="typewriter">Handmade Pixel Art for Gamers & Creators</div>
+      <div class="mascot-container" id="mascotContainer">
+        <div class="mascot" id="mascot">
+          <div class="mascot-body">
+            <div class="mascot-face">👾</div>
+          </div>
         </div>
+        <div class="mascot-shadow"></div>
+      </div>
+      <div class="cta-container">
+        <a href="/pages/shop" class="pixel-btn" onclick="explodeBeads(event)">
+          <span>🎮</span> EXPLORE SHOP
+        </a>
+        <a href="#custom" class="pixel-btn pink" onclick="explodeBeads(event)">
+          <span>✨</span> CUSTOM ORDER
+        </a>
+      </div>
+    </div>
+    <div class="scroll-indicator" onclick="scrollToSection('features')">
+      <span class="scroll-text">SCROLL</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="section-header">
+      <span class="section-label">★ WHY CHOOSE US ★</span>
+      <h2 class="section-title">POWER-UPS</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card" onclick="cardClick(this)">
+        <div class="feature-icon">✋</div>
+        <h3 class="feature-title">HANDCRAFTED</h3>
+        <p class="feature-desc">Every piece made with 1000+ beads by skilled pixel artists</p>
+      </div>
+      <div class="feature-card" onclick="cardClick(this)">
+        <div class="feature-icon">⚡</div>
+        <h3 class="feature-title">FAST SHIPPING</h3>
+        <p class="feature-desc">Worldwide delivery in 10-15 days with tracking</p>
+      </div>
+      <div class="feature-card" onclick="cardClick(this)">
+        <div class="feature-icon">💎</div>
+        <h3 class="feature-title">PREMIUM QUALITY</h3>
+        <p class="feature-desc">Professional-grade beads with protective coating</p>
+      </div>
+      <div class="feature-card" onclick="cardClick(this)">
+        <div class="feature-icon">🎨</div>
+        <h3 class="feature-title">FULL CUSTOM</h3>
+        <p class="feature-desc">Upload any image and we'll pixelate it for you</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS - 横向滑动版本 -->
+  <section class="products" id="products">
+    <div class="section-header">
+      <span class="section-label" style="color: #FFE600;">🔥 HOT ITEMS</span>
+      <h2 class="section-title" style="color: white;">BEST SELLERS</h2>
+    </div>
+    
+    <!-- 滑动容器 -->
+    <div class="carousel-container">
+      <button class="carousel-nav prev" onclick="moveCarousel(-1)">◀</button>
+      
+      <div class="carousel-wrapper">
+        <div class="carousel-track" id="carouselTrack">
+          
+          <!-- 产品1 -->
+          <div class="carousel-card" onclick="window.location.href='/pages/shop'">
+            <div class="carousel-card-inner">
+              <span class="carousel-badge">HOT</span>
+              <div class="carousel-image" style="background: linear-gradient(145deg, #FFE600, #FFB800);">
+                <div class="carousel-emoji">🍄</div>
+              </div>
+              <div class="carousel-info">
+                <div class="carousel-meta">
+                  <span class="carousel-type">KEYCHAIN</span>
+                  <span class="carousel-price">$18</span>
+                </div>
+                <h3 class="carousel-name">Mario Mushroom</h3>
+                <button class="carousel-add-btn" onclick="event.stopPropagation(); addCarouselToCart(1, 'Mario Mushroom', 18, '🍄')">🛒 ADD</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 产品2 -->
+          <div class="carousel-card" onclick="window.location.href='/pages/shop'">
+            <div class="carousel-card-inner">
+              <span class="carousel-badge" style="background: #00D9FF; color: #000;">NEW</span>
+              <div class="carousel-image" style="background: linear-gradient(135deg, #FF6B9D, #C44569);">
+                <div class="carousel-emoji">⚡</div>
+              </div>
+              <div class="carousel-info">
+                <div class="carousel-meta">
+                  <span class="carousel-type">KEYCHAIN</span>
+                  <span class="carousel-price">$22</span>
+                </div>
+                <h3 class="carousel-name">Pikachu Sprite</h3>
+                <button class="carousel-add-btn" onclick="event.stopPropagation(); addCarouselToCart(2, 'Pikachu Sprite', 22, '⚡')">🛒 ADD</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 产品3 -->
+          <div class="carousel-card" onclick="window.location.href='/pages/shop'">
+            <div class="carousel-card-inner">
+              <span class="carousel-badge" style="background: #9D4EDD;">BEST</span>
+              <div class="carousel-image" style="background: linear-gradient(135deg, #4ECDC4, #44A3AA);">
+                <div class="carousel-emoji">🎮</div>
+              </div>
+              <div class="carousel-info">
+                <div class="carousel-meta">
+                  <span class="carousel-type">MAGNET</span>
+                  <span class="carousel-price">$28</span>
+                </div>
+                <h3 class="carousel-name">Retro Controller</h3>
+                <button class="carousel-add-btn" onclick="event.stopPropagation(); addCarouselToCart(3, 'Retro Controller', 28, '🎮')">🛒 ADD</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 产品4 -->
+          <div class="carousel-card" onclick="window.location.href='/pages/shop'">
+            <div class="carousel-card-inner">
+              <span class="carousel-badge" style="background: #00B894;">SALE</span>
+              <div class="carousel-image" style="background: linear-gradient(135deg, #FFD93D, #FFA502);">
+                <div class="carousel-emoji">⭐</div>
+              </div>
+              <div class="carousel-info">
+                <div class="carousel-meta">
+                  <span class="carousel-type">KEYCHAIN</span>
+                  <span class="carousel-price">$15</span>
+                </div>
+                <h3 class="carousel-name">Star Power</h3>
+                <button class="carousel-add-btn" onclick="event.stopPropagation(); addCarouselToCart(4, 'Star Power', 15, '⭐')">🛒 ADD</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 产品5 -->
+          <div class="carousel-card" onclick="window.location.href='/pages/shop'">
+            <div class="carousel-card-inner">
+              <span class="carousel-badge" style="background: #E17055;">DIY</span>
+              <div class="carousel-image" style="background: linear-gradient(135deg, #FD79A8, #E84393);">
+                <div class="carousel-emoji">🎨</div>
+              </div>
+              <div class="carousel-info">
+                <div class="carousel-meta">
+                  <span class="carousel-type">DIY KIT</span>
+                  <span class="carousel-price">$45</span>
+                </div>
+                <h3 class="carousel-name">Pixel Art Kit</h3>
+                <button class="carousel-add-btn" onclick="event.stopPropagation(); addCarouselToCart(5, 'Pixel Art Kit', 45, '🎨')">🛒 ADD</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 产品6 -->
+          <div class="carousel-card" onclick="window.location.href='/pages/shop'">
+            <div class="carousel-card-inner">
+              <span class="carousel-badge">HOT</span>
+              <div class="carousel-image" style="background: linear-gradient(135deg, #74B9FF, #0984E3);">
+                <div class="carousel-emoji">⚔️</div>
+              </div>
+              <div class="carousel-info">
+                <div class="carousel-meta">
+                  <span class="carousel-type">KEYCHAIN</span>
+                  <span class="carousel-price">$20</span>
+                </div>
+                <h3 class="carousel-name">Link Sword</h3>
+                <button class="carousel-add-btn" onclick="event.stopPropagation(); addCarouselToCart(6, 'Link Sword', 20, '⚔️')">🛒 ADD</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="carousel-nav next" onclick="moveCarousel(1)">▶</button>
     </div>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="floating-beads">
-            <div class="fbead"></div>
-            <div class="fbead"></div>
-            <div class="fbead"></div>
-            <div class="fbead"></div>
-            <div class="fbead"></div>
-            <div class="fbead"></div>
-        </div>
+    <!-- 指示点 -->
+    <div class="carousel-dots" id="carouselDots"></div>
 
-        <div class="hero-content">
-            <h1 class="glitch-title">HOLY MOLY!</h1>
-            <div class="typewriter">Handmade Pixel Art for Gamers & Creators</div>
+    <!-- CTA 按钮 -->
+    <div class="go-to-shop-container">
+      <a href="/pages/shop" class="go-to-shop-btn">
+        <span>🎁</span>
+        GO TO THE LOOT BOX
+        <span>→</span>
+      </a>
+    </div>
+  </section>
 
-            <div class="mascot-container" id="mascotContainer">
-                <div class="mascot" id="mascot">
-                    <div class="mascot-body">
-                        <div class="mascot-face">👾</div>
-                    </div>
-                </div>
-                <div class="mascot-shadow"></div>
-            </div>
+  <!-- CTA -->
+  <section class="cta-section" id="custom">
+    <div class="cta-particles">
+      <div class="cparticle"></div>
+      <div class="cparticle"></div>
+      <div class="cparticle"></div>
+      <div class="cparticle"></div>
+    </div>
+    <h2 class="cta-title">READY TO CREATE?</h2>
+    <p class="cta-desc">Transform your favorite characters into tangible bead masterpieces today!</p>
+    <button class="cta-btn-large" onclick="explodeBeads(event)">START CUSTOM ORDER →</button>
+  </section>
 
-            <div class="cta-container">
-                <!-- 🔥 修改了这一行：href="#products" → href="/pages/shop" -->
-                <a href="/pages/shop" class="pixel-btn" onclick="explodeBeads(event)">
-                    <span>🎮</span> EXPLORE SHOP
-                </a>
-                <a href="#custom" class="pixel-btn pink" onclick="explodeBeads(event)">
-                    <span>✨</span> CUSTOM ORDER
-                </a>
-            </div>
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+    <div class="footer-content">
+      <div>
+        <div class="footer-brand">HOLY MOLY</div>
+        <p class="footer-desc">Handmade pixel art for gamers, anime fans, and retro lovers. Made with 💛 and thousands of beads.</p>
+        <div class="social-icons">
+          <div class="social-icon" onclick="socialClick(this)">📸</div>
+          <div class="social-icon" onclick="socialClick(this)">🐦</div>
+          <div class="social-icon" onclick="socialClick(this)">📺</div>
+          <div class="social-icon" onclick="socialClick(this)">💬</div>
         </div>
-
-        <div class="scroll-indicator" onclick="scrollToSection('features')">
-            <span class="scroll-text">SCROLL</span>
-            <div class="scroll-arrow"></div>
-        </div>
-    </section>
-
-    <!-- FEATURES -->
-    <section class="features" id="features">
-        <div class="section-header">
-            <span class="section-label">★ WHY CHOOSE US ★</span>
-            <h2 class="section-title">POWER-UPS</h2>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card" onclick="cardClick(this)">
-                <div class="feature-icon">✋</div>
-                <h3 class="feature-title">HANDCRAFTED</h3>
-                <p class="feature-desc">Every piece made with 1000+ beads by skilled pixel artists</p>
-            </div>
-            <div class="feature-card" onclick="cardClick(this)">
-                <div class="feature-icon">⚡</div>
-                <h3 class="feature-title">FAST SHIPPING</h3>
-                <p class="feature-desc">Worldwide delivery in 10-15 days with tracking</p>
-            </div>
-            <div class="feature-card" onclick="cardClick(this)">
-                <div class="feature-icon">💎</div>
-                <h3 class="feature-title">PREMIUM QUALITY</h3>
-                <p class="feature-desc">Professional-grade beads with protective coating</p>
-            </div>
-            <div class="feature-card" onclick="cardClick(this)">
-                <div class="feature-icon">🎨</div>
-                <h3 class="feature-title">FULL CUSTOM</h3>
-                <p class="feature-desc">Upload any image and we'll pixelate it for you</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRODUCTS -->
-    <section class="products" id="products">
-        <div class="section-header">
-            <span class="section-label" style="color: #FFE600;">🔥 HOT ITEMS</span>
-            <h2 class="section-title" style="color: white;">BEST SELLERS</h2>
-        </div>
-        <div class="products-grid">
-            <div class="product-card" onclick="productClick(this)">
-                <div class="product-image">
-                    🍄
-                    <span class="product-tag">HOT</span>
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Mario Mushroom Keychain</h3>
-                    <div class="product-footer">
-                        <span class="product-price">$18.00</span>
-                        <button class="add-btn" onclick="event.stopPropagation(); addToCart(this)">🛒</button>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card" onclick="productClick(this)">
-                <div class="product-image" style="background: linear-gradient(135deg, #FF6B9D, #C44569);">
-                    ⚡
-                    <span class="product-tag" style="background: #00D9FF; color: #000;">NEW</span>
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Pikachu Sprite Keychain</h3>
-                    <div class="product-footer">
-                        <span class="product-price">$22.00</span>
-                        <button class="add-btn" onclick="event.stopPropagation(); addToCart(this)">🛒</button>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card" onclick="productClick(this)">
-                <div class="product-image" style="background: linear-gradient(135deg, #4ECDC4, #44A3AA);">
-                    🎮
-                    <span class="product-tag" style="background: #9D4EDD;">RARE</span>
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Retro Controller Magnet</h3>
-                    <div class="product-footer">
-                        <span class="product-price">$28.00</span>
-                        <button class="add-btn" onclick="event.stopPropagation(); addToCart(this)">🛒</button>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card" onclick="productClick(this)">
-                <div class="product-image" style="background: linear-gradient(135deg, #FFD93D, #FFA502);">
-                    ⭐
-                    <span class="product-tag" style="background: #FFE600; color: #000;">SALE</span>
-                </div>
-                <div class="product-info">
-                    <h3 class="product-name">Star Power Keychain</h3>
-                    <div class="product-footer">
-                        <span class="product-price">$15.00</span>
-                        <button class="add-btn" onclick="event.stopPropagation(); addToCart(this)">🛒</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section" id="custom">
-        <div class="cta-particles">
-            <div class="cparticle"></div>
-            <div class="cparticle"></div>
-            <div class="cparticle"></div>
-            <div class="cparticle"></div>
-        </div>
-        <h2 class="cta-title">READY TO CREATE?</h2>
-        <p class="cta-desc">Transform your favorite characters into tangible bead masterpieces today!</p>
-        <button class="cta-btn-large" onclick="explodeBeads(event)">START CUSTOM ORDER →</button>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer" id="contact">
-        <div class="footer-content">
-            <div>
-                <div class="footer-brand">HOLY MOLY</div>
-                <p class="footer-desc">Handmade pixel art for gamers, anime fans, and retro lovers. Made with 💛 and thousands of beads.</p>
-                <div class="social-icons">
-                    <div class="social-icon" onclick="socialClick(this)">📸</div>
-                    <div class="social-icon" onclick="socialClick(this)">🐦</div>
-                    <div class="social-icon" onclick="socialClick(this)">📺</div>
-                    <div class="social-icon" onclick="socialClick(this)">💬</div>
-                </div>
-            </div>
-            <div class="footer-column">
-                <h4>SHOP</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Keychains</a></li>
-                    <li><a href="#">DIY Kits</a></li>
-                    <li><a href="#">Custom Art</a></li>
-                    <li><a href="#">Sale</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>SUPPORT</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Shipping</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Returns</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4>COMPANY</h4>
-                <ul class="footer-links">
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Press</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p class="footer-copy">© 2024 HOLY MOLY BEADS — INSERT COIN TO CONTINUE...</p>
-        </div>
-    </footer>
+      </div>
+      <div class="footer-column">
+        <h4>SHOP</h4>
+        <ul class="footer-links">
+          <li><a href="#">Keychains</a></li>
+          <li><a href="#">DIY Kits</a></li>
+          <li><a href="#">Custom Art</a></li>
+          <li><a href="#">Sale</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>SUPPORT</h4>
+        <ul class="footer-links">
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>COMPANY</h4>
+        <ul class="footer-links">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2024 HOLY MOLY BEADS — INSERT COIN TO CONTINUE...</p>
+    </div>
+  </footer>
 </div>
+
+<style>
+/* ===== 滑动展示区域样式 ===== */
+.carousel-container {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 80px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.carousel-wrapper {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 滑动卡片 */
+.carousel-card {
+  flex: 0 0 calc(25% - 18px);
+  min-width: 260px;
+  background: #1a1a2e;
+  border: 4px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.carousel-card:hover {
+  border-color: #FFE600;
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(255, 230, 0, 0.2);
+}
+
+.carousel-card-inner { position: relative; }
+
+.carousel-badge {
+  position: absolute;
+  top: 16px; left: 16px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  padding: 8px 14px;
+  background: #FF2D7D;
+  border: 3px solid #000;
+  border-radius: 6px;
+  color: white;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+  z-index: 5;
+  animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.carousel-image {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-emoji {
+  font-size: 80px;
+  animation: floatEmoji 3s ease-in-out infinite;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+}
+
+@keyframes floatEmoji {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+.carousel-card:hover .carousel-emoji {
+  animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+}
+
+.carousel-info {
+  padding: 20px;
+  background: white;
+}
+
+.carousel-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.carousel-type {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  color: #9D4EDD;
+  background: rgba(157,78,221,0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.carousel-price {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+  color: #FF2D7D;
+}
+
+.carousel-name {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: #000;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  min-height: 32px;
+}
+
+.carousel-add-btn {
+  width: 100%;
+  padding: 14px;
+  background: #FFE600;
+  border: 4px solid #000;
+  border-radius: 12px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: #000;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 #000;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.carousel-add-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #000;
+  background: #00D9FF;
+}
+
+/* 导航箭头 */
+.carousel-nav {
+  width: 56px;
+  height: 56px;
+  background: #FFE600;
+  border: 4px solid #000;
+  border-radius: 50%;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 18px;
+  color: #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 4px 4px 0 #000;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.carousel-nav:hover {
+  transform: scale(1.1);
+  background: #FF2D7D;
+  color: white;
+}
+
+.carousel-nav:active {
+  transform: scale(0.95);
+  box-shadow: 2px 2px 0 #000;
+}
+
+/* 指示点 */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.carousel-dot {
+  width: 14px;
+  height: 14px;
+  background: rgba(255,255,255,0.2);
+  border: 3px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.carousel-dot.active {
+  background: #FFE600;
+  border-color: #000;
+  box-shadow: 0 0 15px #FFE600;
+  transform: scale(1.3);
+}
+
+/* CTA 按钮 */
+.go-to-shop-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.go-to-shop-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+  padding: 28px 48px;
+  background: linear-gradient(135deg, #FFE600, #FFD000);
+  border: 6px solid #000;
+  border-radius: 20px;
+  color: #000;
+  text-decoration: none;
+  box-shadow: 8px 8px 0 #000, 0 0 40px rgba(255, 230, 0, 0.3);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.go-to-shop-btn:hover {
+  transform: translate(4px, 4px);
+  box-shadow: 4px 4px 0 #000;
+  background: linear-gradient(135deg, #FF2D7D, #FF6B9D);
+  color: white;
+}
+
+.go-to-shop-btn span:first-child {
+  font-size: 24px;
+}
+
+.go-to-shop-btn span:last-child {
+  font-size: 20px;
+  transition: transform 0.3s;
+}
+
+.go-to-shop-btn:hover span:last-child {
+  transform: translateX(8px);
+}
+
+/* 响应式 */
+@media (max-width: 1024px) {
+  .carousel-card { flex: 0 0 calc(33.333% - 16px); }
+  .carousel-container { padding: 0 60px; }
+}
+
+@media (max-width: 768px) {
+  .carousel-card { flex: 0 0 calc(50% - 12px); min-width: 160px; }
+  .carousel-container { padding: 0 20px; }
+  .carousel-nav { width: 44px; height: 44px; font-size: 14px; }
+  .carousel-image { height: 140px; }
+  .carousel-emoji { font-size: 50px; }
+  .carousel-name { font-size: 8px; min-height: 26px; }
+  .carousel-add-btn { font-size: 8px; padding: 10px; }
+  .go-to-shop-btn { font-size: 11px; padding: 20px 32px; }
+}
+
+@media (max-width: 480px) {
+  .carousel-card { flex: 0 0 calc(50% - 8px); }
+}
+</style>
 
 <script>
 // Loading Animation
 var pixelGrid = document.getElementById('pixelGrid');
 var activePixels = [0,1,2,3, 8,9,10,11, 16,17,18,19, 24,25,26,27, 33,34, 41,42, 49,50, 56,57,58,59];
-
 if (pixelGrid) {
-    for (var i = 0; i < 64; i++) {
-        var pixel = document.createElement('div');
-        pixel.className = 'pixel-dot';
-        if (activePixels.indexOf(i) !== -1) {
-            pixel.classList.add('active');
-        }
-        pixel.style.animationDelay = (Math.random() * 1.5) + 's';
-        pixelGrid.appendChild(pixel);
+  for (var i = 0; i < 64; i++) {
+    var pixel = document.createElement('div');
+    pixel.className = 'pixel-dot';
+    if (activePixels.indexOf(i) !== -1) {
+      pixel.classList.add('active');
     }
+    pixel.style.animationDelay = (Math.random() * 1.5) + 's';
+    pixelGrid.appendChild(pixel);
+  }
 }
 
 setTimeout(function() {
-    var loader = document.getElementById('loader');
-    var intro = document.getElementById('intro');
-    var mainSite = document.getElementById('main-site');
-
-    if (loader) loader.classList.add('hidden');
-
+  var loader = document.getElementById('loader');
+  var intro = document.getElementById('intro');
+  var mainSite = document.getElementById('main-site');
+  if (loader) loader.classList.add('hidden');
+  setTimeout(function() {
+    if (intro) intro.classList.add('active');
     setTimeout(function() {
-        if (intro) intro.classList.add('active');
-
-        setTimeout(function() {
-            if (intro) intro.classList.remove('active');
-            if (mainSite) mainSite.classList.add('active');
-        }, 800);
-    }, 500);
+      if (intro) intro.classList.remove('active');
+      if (mainSite) mainSite.classList.add('active');
+      // 初始化滑动组件
+      initCarousel();
+    }, 800);
+  }, 500);
 }, 2500);
 
 // Mobile Menu
 function toggleMobileMenu() {
-    var menu = document.getElementById('mobileMenu');
-    var hamburger = document.getElementById('hamburger');
-    if (menu && hamburger) {
-        menu.classList.toggle('active');
-        hamburger.classList.toggle('active');
-    }
+  var menu = document.getElementById('mobileMenu');
+  var hamburger = document.getElementById('hamburger');
+  if (menu && hamburger) {
+    menu.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  }
 }
 
 // Custom Cursor
 var cursor = document.getElementById('cursor');
 var cursorDot = document.getElementById('cursorDot');
-
 if (cursor && cursorDot) {
-    document.addEventListener('mousemove', function(e) {
-        cursor.style.left = (e.clientX - 20) + 'px';
-        cursor.style.top = (e.clientY - 20) + 'px';
-        cursorDot.style.left = (e.clientX - 4) + 'px';
-        cursorDot.style.top = (e.clientY - 4) + 'px';
+  document.addEventListener('mousemove', function(e) {
+    cursor.style.left = (e.clientX - 20) + 'px';
+    cursor.style.top = (e.clientY - 20) + 'px';
+    cursorDot.style.left = (e.clientX - 4) + 'px';
+    cursorDot.style.top = (e.clientY - 4) + 'px';
+  });
+  var hoverElements = document.querySelectorAll('a, button, .carousel-card, .feature-card, .social-icon');
+  hoverElements.forEach(function(el) {
+    el.addEventListener('mouseenter', function() {
+      cursor.classList.add('hover');
     });
-
-    var hoverElements = document.querySelectorAll('a, button, .product-card, .feature-card, .social-icon');
-    hoverElements.forEach(function(el) {
-        el.addEventListener('mouseenter', function() {
-            cursor.classList.add('hover');
-        });
-        el.addEventListener('mouseleave', function() {
-            cursor.classList.remove('hover');
-        });
+    el.addEventListener('mouseleave', function() {
+      cursor.classList.remove('hover');
     });
+  });
 }
 
 // Click Ripple
 document.addEventListener('click', function(e) {
-    var ripple = document.createElement('div');
-    ripple.className = 'click-ripple';
-    ripple.style.left = (e.clientX - 10) + 'px';
-    ripple.style.top = (e.clientY - 10) + 'px';
-    document.body.appendChild(ripple);
-    setTimeout(function() {
-        ripple.remove();
-    }, 600);
+  var ripple = document.createElement('div');
+  ripple.className = 'click-ripple';
+  ripple.style.left = (e.clientX - 10) + 'px';
+  ripple.style.top = (e.clientY - 10) + 'px';
+  document.body.appendChild(ripple);
+  setTimeout(function() {
+    ripple.remove();
+  }, 600);
 });
 
 // Mascot Tilt
 var mascot = document.getElementById('mascot');
 var mascotContainer = document.getElementById('mascotContainer');
-
 if (mascot && mascotContainer) {
-    mascotContainer.addEventListener('mousemove', function(e) {
-        var rect = mascotContainer.getBoundingClientRect();
-        var x = e.clientX - rect.left;
-        var y = e.clientY - rect.top;
-        var centerX = rect.width / 2;
-        var centerY = rect.height / 2;
-        var rotateX = (y - centerY) / 10;
-        var rotateY = (centerX - x) / 10;
-        mascot.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
-    });
-
-    mascotContainer.addEventListener('mouseleave', function() {
-        mascot.style.transform = '';
-    });
+  mascotContainer.addEventListener('mousemove', function(e) {
+    var rect = mascotContainer.getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    var y = e.clientY - rect.top;
+    var centerX = rect.width / 2;
+    var centerY = rect.height / 2;
+    var rotateX = (y - centerY) / 10;
+    var rotateY = (centerX - x) / 10;
+    mascot.style.transform = 'rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg)';
+  });
+  mascotContainer.addEventListener('mouseleave', function() {
+    mascot.style.transform = '';
+  });
 }
 
 // Interactions
 function explodeBeads(e) {
-    for (var i = 0; i < 8; i++) {
-        setTimeout(function() {
-            var x = e.clientX + (Math.random() - 0.5) * 100;
-            var y = e.clientY + (Math.random() - 0.5) * 100;
-            var ripple = document.createElement('div');
-            ripple.className = 'click-ripple';
-            ripple.style.left = (x - 10) + 'px';
-            ripple.style.top = (y - 10) + 'px';
-            document.body.appendChild(ripple);
-            setTimeout(function() {
-                ripple.remove();
-            }, 600);
-        }, i * 50);
-    }
+  for (var i = 0; i < 8; i++) {
+    setTimeout(function() {
+      var x = e.clientX + (Math.random() - 0.5) * 100;
+      var y = e.clientY + (Math.random() - 0.5) * 100;
+      var ripple = document.createElement('div');
+      ripple.className = 'click-ripple';
+      ripple.style.left = (x - 10) + 'px';
+      ripple.style.top = (y - 10) + 'px';
+      document.body.appendChild(ripple);
+      setTimeout(function() {
+        ripple.remove();
+      }, 600);
+    }, i * 50);
+  }
 }
 
 function cardClick(card) {
-    card.style.transform = 'scale(0.95)';
-    setTimeout(function() {
-        card.style.transform = '';
-    }, 200);
-}
-
-function productClick(card) {
-    card.style.transform = 'scale(0.98) rotate(-2deg)';
-    setTimeout(function() {
-        card.style.transform = '';
-    }, 200);
+  card.style.transform = 'scale(0.95)';
+  setTimeout(function() {
+    card.style.transform = '';
+  }, 200);
 }
 
 var cartCount = 0;
 function addToCart(btn) {
-    btn.style.transform = 'scale(1.2)';
-    btn.innerHTML = '✓';
-    btn.style.background = '#00D9FF';
+  btn.style.transform = 'scale(1.2)';
+  btn.innerHTML = '✓';
+  btn.style.background = '#00D9FF';
+  cartCount++;
+  var badge = document.getElementById('cartBadge');
+  var badgeMobile = document.getElementById('cartBadgeMobile');
+  if (badge) {
+    badge.textContent = cartCount;
+    badge.classList.remove('hidden');
+  }
+  if (badgeMobile) {
+    badgeMobile.textContent = cartCount;
+    badgeMobile.classList.remove('hidden');
+  }
+  setTimeout(function() {
+    btn.style.transform = '';
+    btn.innerHTML = '🛒';
+    btn.style.background = '';
+  }, 1000);
+}
 
-    cartCount++;
-    var badge = document.getElementById('cartBadge');
-    var badgeMobile = document.getElementById('cartBadgeMobile');
-    if (badge) {
-        badge.textContent = cartCount;
-        badge.classList.remove('hidden');
-    }
-    if (badgeMobile) {
-        badgeMobile.textContent = cartCount;
-        badgeMobile.classList.remove('hidden');
-    }
-
-    setTimeout(function() {
-        btn.style.transform = '';
-        btn.innerHTML = '🛒';
-        btn.style.background = '';
-    }, 1000);
+function addCarouselToCart(id, name, price, emoji) {
+  var btn = event.target;
+  var original = btn.innerHTML;
+  
+  btn.innerHTML = '✓ ADDED!';
+  btn.style.background = '#00FF00';
+  
+  cartCount++;
+  var badge = document.getElementById('cartBadge');
+  var badgeMobile = document.getElementById('cartBadgeMobile');
+  if (badge) {
+    badge.textContent = cartCount;
+    badge.classList.remove('hidden');
+  }
+  if (badgeMobile) {
+    badgeMobile.textContent = cartCount;
+    badgeMobile.classList.remove('hidden');
+  }
+  
+  // 调用购物车抽屉（如果存在）
+  if (typeof window.addToCart === 'function') {
+    window.addToCart({
+      id: id,
+      name: name,
+      price: price,
+      emoji: emoji,
+      variant: 'Color: Default'
+    });
+  }
+  
+  setTimeout(function() {
+    btn.innerHTML = original;
+    btn.style.background = '';
+  }, 1500);
 }
 
 function socialClick(icon) {
-    icon.style.transform = 'rotate(360deg) scale(1.2)';
-    setTimeout(function() {
-        icon.style.transform = '';
-    }, 500);
+  icon.style.transform = 'rotate(360deg) scale(1.2)';
+  setTimeout(function() {
+    icon.style.transform = '';
+  }, 500);
 }
 
 function scrollToSection(id) {
-    var element = document.getElementById(id);
-    if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-    }
+  var element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+  }
 }
 
 function smoothScroll(e, id) {
-    e.preventDefault();
-    scrollToSection(id);
+  e.preventDefault();
+  scrollToSection(id);
 }
 
 function scrollToTop(e) {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function openCart() {
-    alert('购物车功能需要接入 Shopify API');
+  if (typeof window.openCartDrawer === 'function') {
+    window.openCartDrawer();
+  } else {
+    alert('🛒 购物车里有 ' + cartCount + ' 件商品');
+  }
 }
+
+// ===== 滑动展示功能 =====
+var currentSlide = 0;
+var totalSlides = 6;
+var visibleSlides = 4;
+
+function initCarousel() {
+  visibleSlides = window.innerWidth <= 768 ? 2 : window.innerWidth <= 1024 ? 3 : 4;
+  createDots();
+  
+  // 触摸滑动支持
+  var track = document.getElementById('carouselTrack');
+  if (track) {
+    var touchStartX = 0;
+    track.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    track.addEventListener('touchend', function(e) {
+      var touchEndX = e.changedTouches[0].screenX;
+      var diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) moveCarousel(1);
+        else moveCarousel(-1);
+      }
+    });
+  }
+}
+
+function moveCarousel(direction) {
+  var track = document.getElementById('carouselTrack');
+  if (!track) return;
+  
+  var cardWidth = track.children[0].offsetWidth + 24;
+  var maxSlide = totalSlides - visibleSlides;
+  
+  currentSlide += direction;
+  if (currentSlide < 0) currentSlide = 0;
+  if (currentSlide > maxSlide) currentSlide = maxSlide;
+  
+  track.style.transform = 'translateX(-' + (currentSlide * cardWidth) + 'px)';
+  updateDots();
+}
+
+function updateDots() {
+  var dots = document.querySelectorAll('.carousel-dot');
+  dots.forEach(function(dot, index) {
+    dot.classList.toggle('active', index === currentSlide);
+  });
+}
+
+function createDots() {
+  var container = document.getElementById('carouselDots');
+  if (!container) return;
+  
+  container.innerHTML = '';
+  var maxSlide = totalSlides - visibleSlides + 1;
+  for (var i = 0; i < maxSlide; i++) {
+    var dot = document.createElement('div');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = (function(index) {
+      return function() {
+        currentSlide = index;
+        moveCarousel(0);
+      };
+    })(i);
+    container.appendChild(dot);
+  }
+}
+
+// 响应式重计算
+window.addEventListener('resize', function() {
+  var newVisible = window.innerWidth <= 768 ? 2 : window.innerWidth <= 1024 ? 3 : 4;
+  if (newVisible !== visibleSlides) {
+    visibleSlides = newVisible;
+    currentSlide = 0;
+    moveCarousel(0);
+    createDots();
+  }
+});
 
 // Scroll Animations
 var observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
 };
 
 var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
 }, observerOptions);
 
-document.querySelectorAll('.feature-card, .product-card').forEach(function(el) {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(30px)';
-    el.style.transition = 'opacity 0.6s, transform 0.6s';
-    observer.observe(el);
+document.querySelectorAll('.feature-card').forEach(function(el) {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(30px)';
+  el.style.transition = 'opacity 0.6s, transform 0.6s';
+  observer.observe(el);
 });
 
 // Navbar Scroll Effect
 var navbar = document.getElementById('navbar');
 if (navbar) {
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
 }
 
 // Active Link Highlighting
 var sections = ['products', 'features', 'custom', 'contact'];
 var navLinks = document.querySelectorAll('.navbar-link');
-
 window.addEventListener('scroll', function() {
-    var current = '';
-    var navbarHeight = navbar ? navbar.offsetHeight : 0;
-
-    sections.forEach(function(sectionId) {
-        var section = document.getElementById(sectionId);
-        if (section) {
-            var sectionTop = section.offsetTop - navbarHeight - 100;
-            if (window.scrollY >= sectionTop) {
-                current = sectionId;
-            }
-        }
-    });
-
-    navLinks.forEach(function(link) {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-            link.classList.add('active');
-        }
-    });
+  var current = '';
+  var navbarHeight = navbar ? navbar.offsetHeight : 0;
+  sections.forEach(function(sectionId) {
+    var section = document.getElementById(sectionId);
+    if (section) {
+      var sectionTop = section.offsetTop - navbarHeight - 100;
+      if (window.scrollY >= sectionTop) {
+        current = sectionId;
+      }
+    }
+  });
+  navLinks.forEach(function(link) {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
 });
 
 // Hide cursor on touch devices
 if ('ontouchstart' in window) {
-    if (cursor) cursor.style.display = 'none';
-    if (cursorDot) cursorDot.style.display = 'none';
+  if (cursor) cursor.style.display = 'none';
+  if (cursorDot) cursorDot.style.display = 'none';
 }
 </script>
