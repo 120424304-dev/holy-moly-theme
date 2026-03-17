@@ -1,1041 +1,185 @@
 <style>
-/* ========== 完整CSS样式 ========== */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 * { box-sizing: border-box; }
 
-.shop-page { 
-    background: #0a0a0f; 
-    min-height: 100vh; 
-    padding: 120px 20px 80px;
-    font-family: 'Inter', sans-serif;
-}
+.shop-page { background: #0a0a0f; min-height: 100vh; padding: 120px 20px 80px; font-family: 'Inter', sans-serif; }
 
-/* 导航栏 */
-.shop-navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    padding: 16px 40px;
-    background: rgba(10, 10, 15, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 4px solid #FFE600;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-}
-
-.navbar-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.navbar-logo {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 18px;
-    color: #FFE600;
-    text-decoration: none;
-    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: all 0.3s;
-}
-
-.navbar-logo:hover {
-    color: #FF2D7D;
-    transform: scale(1.05);
-}
-
-.navbar-logo-icon {
-    font-size: 24px;
-    animation: logoBounce 2s ease-in-out infinite;
-}
-
-@keyframes logoBounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-}
-
-.navbar-menu {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.navbar-link {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 10px;
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    padding: 12px 16px;
-    position: relative;
-    transition: all 0.3s;
-}
-
-.navbar-link::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 3px;
-    background: #FFE600;
-    transition: width 0.3s;
-    box-shadow: 0 0 10px #FFE600;
-}
-
-.navbar-link:hover, .navbar-link.active {
-    color: #FFE600;
-}
-
-.navbar-link:hover::before, .navbar-link.active::before {
-    width: 80%;
-}
-
-.navbar-cart {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    background: #FFE600;
-    border: 4px solid #000;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    cursor: pointer;
-    box-shadow: 4px 4px 0px #000;
-    transition: all 0.2s;
-}
-
-.navbar-cart:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0px #000;
-    background: #FF2D7D;
-}
-
-.cart-badge {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    width: 26px;
-    height: 26px;
-    background: #FF2D7D;
-    border: 3px solid #000;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 10px;
-    color: white;
-    animation: badgePulse 2s infinite;
-}
-
+.shop-navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 16px 40px; background: rgba(10,10,15,0.95); backdrop-filter: blur(10px); border-bottom: 4px solid #FFE600; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+.navbar-container { max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.navbar-logo { font-family: 'Press Start 2P'; font-size: 18px; color: #FFE600; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+.navbar-logo-icon { font-size: 24px; animation: logoBounce 2s ease-in-out infinite; }
+@keyframes logoBounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.navbar-menu { display: flex; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.navbar-link { font-family: 'Press Start 2P'; font-size: 10px; color: rgba(255,255,255,0.8); text-decoration: none; padding: 12px 16px; position: relative; transition: all 0.3s; }
+.navbar-link:hover, .navbar-link.active { color: #FFE600; }
+.navbar-cart { position: relative; width: 50px; height: 50px; background: #FFE600; border: 4px solid #000; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; box-shadow: 4px 4px 0 #000; }
+.navbar-cart:hover { transform: translate(2px,2px); box-shadow: 2px 2px 0 #000; background: #FF2D7D; }
+.cart-badge { position: absolute; top: -10px; right: -10px; width: 26px; height: 26px; background: #FF2D7D; border: 3px solid #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Press Start 2P'; font-size: 10px; color: white; }
 .cart-badge.hidden { display: none; }
+.hamburger { display: none; flex-direction: column; gap: 6px; padding: 10px; cursor: pointer; background: transparent; border: none; }
+.hamburger-line { width: 30px; height: 4px; background: #FFE600; border-radius: 2px; box-shadow: 2px 2px 0 rgba(0,0,0,0.5); }
+.mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(10,10,15,0.98); z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 30px; opacity: 0; pointer-events: none; }
+.mobile-menu.active { opacity: 1; pointer-events: all; display: flex; }
 
-@keyframes badgePulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
+.shop-header { text-align: center; margin-bottom: 60px; margin-top: 40px; }
+.shop-title { font-family: 'Press Start 2P'; font-size: clamp(28px, 5vw, 48px); color: #FFE600; text-shadow: 4px 4px 0 #FF2D7D, 8px 8px 0 #00D9FF; margin-bottom: 16px; animation: titleFloat 3s ease-in-out infinite; }
+@keyframes titleFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.shop-subtitle { font-family: 'Press Start 2P'; font-size: 12px; color: rgba(255,255,255,0.5); }
 
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 6px;
-    padding: 10px;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-}
+.control-panel { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: center; margin-bottom: 40px; padding: 30px; background: rgba(255,255,255,0.03); border: 3px solid rgba(255,230,0,0.2); border-radius: 20px; max-width: 1400px; margin-left: auto; margin-right: auto; }
 
-.hamburger-line {
-    width: 30px;
-    height: 4px;
-    background: #FFE600;
-    border-radius: 2px;
-    box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
-}
+.pixel-search { position: relative; display: flex; align-items: center; background: #1a1a2e; border: 4px solid #FFE600; border-radius: 12px; padding: 12px 16px; min-width: 280px; }
+.pixel-search .search-icon { font-size: 18px; margin-right: 12px; }
+.pixel-search input { background: transparent; border: none; color: #FFE600; font-family: 'Press Start 2P'; font-size: 10px; outline: none; width: 100%; text-transform: uppercase; }
 
-.mobile-menu {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(10, 10, 15, 0.98);
-    z-index: 999;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 30px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s;
-}
+.filter-chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip { font-family: 'Press Start 2P'; font-size: 9px; padding: 12px 20px; background: transparent; border: 3px solid rgba(255,255,255,0.2); border-radius: 8px; color: rgba(255,255,255,0.6); cursor: pointer; transition: all 0.3s; }
+.chip:hover, .chip.active { background: #FFE600; border-color: #000; color: #000; box-shadow: 4px 4px 0 #000; transform: translate(-2px,-2px); }
 
-.mobile-menu.active {
-    opacity: 1;
-    pointer-events: all;
-    display: flex;
-}
+.pixel-dropdown { position: relative; z-index: 100; }
+.pixel-dropdown-btn { font-family: 'Press Start 2P'; font-size: 9px; padding: 14px 20px; background: #FF2D7D; border: 4px solid #000; border-radius: 8px; color: white; cursor: pointer; box-shadow: 4px 4px 0 #000; display: flex; align-items: center; gap: 10px; min-width: 220px; }
+.dropdown-arrow { margin-left: auto; transition: transform 0.3s; }
+.pixel-dropdown.open .dropdown-arrow { transform: rotate(180deg); }
+.pixel-dropdown-menu { position: absolute; top: calc(100% + 12px); left: 0; right: 0; background: #1a1a2e; border: 4px solid #FFE600; border-radius: 12px; box-shadow: 6px 6px 0 #000; opacity: 0; visibility: hidden; transform: translateY(-10px) scale(0.95); transition: all 0.3s; }
+.pixel-dropdown.open .pixel-dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+.dropdown-item { display: flex; align-items: center; gap: 12px; padding: 16px 20px; font-family: 'Press Start 2P'; font-size: 9px; color: rgba(255,255,255,0.8); cursor: pointer; transition: all 0.2s; }
+.dropdown-item:hover { background: #FFE600; color: #000; padding-left: 28px; }
+.dropdown-item.active { background: rgba(255,230,0,0.2); color: #FFE600; }
 
-/* 页面标题 */
-.shop-header {
-    text-align: center;
-    margin-bottom: 60px;
-    margin-top: 40px;
-}
+.products-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; max-width: 1400px; margin: 0 auto; perspective: 1000px; }
 
-.shop-title {
-    font-family: 'Press Start 2P', cursive;
-    font-size: clamp(28px, 5vw, 48px);
-    color: #FFE600;
-    text-shadow: 4px 4px 0 #FF2D7D, 8px 8px 0 #00D9FF;
-    margin-bottom: 16px;
-    animation: titleFloat 3s ease-in-out infinite;
-}
+.product-pixel-card { position: relative; cursor: pointer; transform-style: preserve-3d; transition: transform 0.3s; opacity: 0; transform: translateY(30px); }
+.product-pixel-card.visible { opacity: 1; transform: translateY(0); transition: opacity 0.6s, transform 0.6s; }
+.card-inner { background: #1a1a2e; border: 4px solid rgba(255,255,255,0.1); border-radius: 20px; overflow: hidden; position: relative; transition: all 0.3s; }
+.product-pixel-card:hover .card-inner { border-color: #FFE600; box-shadow: 0 20px 60px rgba(255,230,0,0.2); transform: translateY(-5px); }
 
-@keyframes titleFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-.shop-subtitle {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 12px;
-    color: rgba(255,255,255,0.5);
-}
-
-/* 控制面板 */
-.control-panel {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 40px;
-    padding: 30px;
-    background: rgba(255,255,255,0.03);
-    border: 3px solid rgba(255,230,0,0.2);
-    border-radius: 20px;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* 搜索框 */
-.pixel-search {
-    position: relative;
-    display: flex;
-    align-items: center;
-    background: #1a1a2e;
-    border: 4px solid #FFE600;
-    border-radius: 12px;
-    padding: 12px 16px;
-    min-width: 280px;
-    transition: all 0.3s;
-}
-
-.pixel-search:focus-within {
-    box-shadow: 0 0 20px rgba(255,230,0,0.3);
-    transform: translateY(-2px);
-}
-
-.pixel-search .search-icon {
-    font-size: 18px;
-    margin-right: 12px;
-    animation: searchPulse 2s infinite;
-}
-
-@keyframes searchPulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-}
-
-.pixel-search input {
-    background: transparent;
-    border: none;
-    color: #FFE600;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 10px;
-    outline: none;
-    width: 100%;
-    text-transform: uppercase;
-}
-
-/* 筛选芯片 */
-.filter-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.chip {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 9px;
-    padding: 12px 20px;
-    background: transparent;
-    border: 3px solid rgba(255,255,255,0.2);
-    border-radius: 8px;
-    color: rgba(255,255,255,0.6);
-    cursor: pointer;
-    transition: all 0.3s;
-    text-transform: uppercase;
-}
-
-.chip:hover, .chip.active {
-    background: #FFE600;
-    border-color: #000;
-    color: #000;
-    box-shadow: 4px 4px 0 #000;
-    transform: translate(-2px, -2px);
-}
-
-/* 下拉菜单 */
-.pixel-dropdown {
-    position: relative;
-    z-index: 100;
-}
-
-.pixel-dropdown-btn {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 9px;
-    padding: 14px 20px;
-    background: #FF2D7D;
-    border: 4px solid #000;
-    border-radius: 8px;
-    color: white;
-    cursor: pointer;
-    box-shadow: 4px 4px 0 #000;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    min-width: 220px;
-    transition: all 0.2s;
-}
-
-.pixel-dropdown-btn:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 #000;
-    background: #ff4d8f;
-}
-
-.dropdown-arrow {
-    margin-left: auto;
-    transition: transform 0.3s;
-}
-
-.pixel-dropdown.open .dropdown-arrow {
-    transform: rotate(180deg);
-}
-
-.pixel-dropdown-menu {
-    position: absolute;
-    top: calc(100% + 12px);
-    left: 0;
-    right: 0;
-    background: #1a1a2e;
-    border: 4px solid #FFE600;
-    border-radius: 12px;
-    box-shadow: 6px 6px 0 #000;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px) scale(0.95);
-    transition: all 0.3s;
-    overflow: hidden;
-}
-
-.pixel-dropdown.open .pixel-dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0) scale(1);
-}
-
-.dropdown-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 16px 20px;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 9px;
-    color: rgba(255,255,255,0.8);
-    cursor: pointer;
-    transition: all 0.2s;
-    border-bottom: 2px solid rgba(255,230,0,0.1);
-}
-
-.dropdown-item:hover {
-    background: #FFE600;
-    color: #000;
-    padding-left: 28px;
-}
-
-.dropdown-item.active {
-    background: rgba(255,230,0,0.2);
-    color: #FFE600;
-}
-
-.dropdown-item.active::after {
-    content: '✓';
-    margin-left: auto;
-    color: #00D9FF;
-}
-
-/* 产品网格 */
-.products-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
-    max-width: 1400px;
-    margin: 0 auto;
-    perspective: 1000px;
-}
-
-/* 产品卡片 */
-.product-pixel-card {
-    position: relative;
-    cursor: pointer;
-    transform-style: preserve-3d;
-    transition: transform 0.3s;
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-.product-pixel-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.6s, transform 0.6s;
-}
-
-.card-inner {
-    background: #1a1a2e;
-    border: 4px solid rgba(255,255,255,0.1);
-    border-radius: 20px;
-    overflow: hidden;
-    position: relative;
-    transition: all 0.3s;
-}
-
-.product-pixel-card:hover .card-inner {
-    border-color: #FFE600;
-    box-shadow: 0 20px 60px rgba(255,230,0,0.2);
-    transform: translateY(-5px);
-}
-
-/* 像素角 */
-.pixel-corners .corner {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    border: 3px solid #FFE600;
-    opacity: 0;
-    transition: opacity 0.3s;
-    z-index: 10;
-}
-
+.pixel-corners .corner { position: absolute; width: 12px; height: 12px; border: 3px solid #FFE600; opacity: 0; transition: opacity 0.3s; z-index: 10; }
 .corner.tl { top: -2px; left: -2px; border-right: none; border-bottom: none; }
 .corner.tr { top: -2px; right: -2px; border-left: none; border-bottom: none; }
 .corner.bl { bottom: -2px; left: -2px; border-right: none; border-top: none; }
 .corner.br { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+.product-pixel-card:hover .corner { opacity: 1; }
 
-.product-pixel-card:hover .corner {
-    opacity: 1;
-}
+.wishlist-btn { position: absolute; top: 16px; right: 16px; z-index: 10; width: 44px; height: 44px; background: rgba(0,0,0,0.5); border: 3px solid rgba(255,255,255,0.3); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; transition: all 0.3s; }
+.wishlist-btn:hover, .wishlist-btn.active { background: #FF2D7D; border-color: #000; box-shadow: 3px 3px 0 #000; transform: scale(1.1); }
 
-/* 收藏按钮 */
-.wishlist-btn {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    z-index: 10;
-    width: 44px;
-    height: 44px;
-    background: rgba(0,0,0,0.5);
-    border: 3px solid rgba(255,255,255,0.3);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.wishlist-btn:hover, .wishlist-btn.active {
-    background: #FF2D7D;
-    border-color: #000;
-    box-shadow: 3px 3px 0 #000;
-    transform: scale(1.1);
-}
-
-/* 快速操作 */
-.quick-actions {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    opacity: 0;
-    z-index: 5;
-    transition: opacity 0.3s;
-    pointer-events: none;
-}
-
-.product-pixel-card:hover .quick-actions {
-    opacity: 1;
-    pointer-events: all;
-}
-
-.quick-btn {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 9px;
-    padding: 14px 24px;
-    border: 3px solid #000;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s;
-    white-space: nowrap;
-    box-shadow: 4px 4px 0 #000;
-}
-
-.quick-btn:hover {
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 #000;
-}
-
+.quick-actions { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; flex-direction: column; gap: 12px; opacity: 0; z-index: 5; transition: opacity 0.3s; pointer-events: none; }
+.product-pixel-card:hover .quick-actions { opacity: 1; pointer-events: all; }
+.quick-btn { font-family: 'Press Start 2P'; font-size: 9px; padding: 14px 24px; border: 3px solid #000; border-radius: 8px; cursor: pointer; transition: all 0.2s; white-space: nowrap; box-shadow: 4px 4px 0 #000; }
+.quick-btn:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 #000; }
 .quick-view { background: #FFE600; color: #000; }
 .add-cart { background: #00D9FF; color: #000; }
 
-/* 图片区 */
-.card-image-wrapper {
-    position: relative;
-    height: 260px;
-    overflow: hidden;
-}
+.card-image-wrapper { position: relative; height: 260px; overflow: hidden; }
+.card-image { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; transition: transform 0.4s; }
+.product-pixel-card:hover .card-image { transform: scale(1.05); }
+.product-img-placeholder { font-size: 100px; animation: placeholderFloat 3s ease-in-out infinite; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); }
+@keyframes placeholderFloat { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-10px) rotate(5deg); } }
+.product-pixel-card:hover .product-img-placeholder { animation: shake 0.5s ease; }
+@keyframes shake { 0%,100% { transform: rotate(0deg); } 25% { transform: rotate(-10deg); } 75% { transform: rotate(10deg); } }
+.product-img { width: 80%; height: 80%; object-fit: contain; transition: transform 0.4s; }
+.product-pixel-card:hover .product-img { transform: scale(1.1); }
 
-.card-image {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    transition: transform 0.4s;
-}
-
-.product-pixel-card:hover .card-image {
-    transform: scale(1.05);
-}
-
-/* 图片占位符 */
-.product-img-placeholder {
-    font-size: 100px;
-    animation: placeholderFloat 3s ease-in-out infinite;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
-}
-
-@keyframes placeholderFloat {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-10px) rotate(5deg); }
-}
-
-.product-pixel-card:hover .product-img-placeholder {
-    animation: shake 0.5s ease;
-}
-
-@keyframes shake {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(-10deg); }
-    75% { transform: rotate(10deg); }
-}
-
-/* 产品图片（替换后使用） */
-.product-img {
-    width: 80%;
-    height: 80%;
-    object-fit: contain;
-    transition: transform 0.4s;
-}
-
-.product-pixel-card:hover .product-img {
-    transform: scale(1.1);
-}
-
-/* 徽章 */
-.card-badge {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 9px;
-    padding: 8px 14px;
-    border: 3px solid #000;
-    border-radius: 6px;
-    box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
-    animation: badgeGlow 2s infinite;
-    z-index: 5;
-}
-
-@keyframes badgeGlow {
-    0%, 100% { box-shadow: 3px 3px 0 rgba(0,0,0,0.3); }
-    50% { box-shadow: 3px 3px 0 rgba(0,0,0,0.3), 0 0 15px currentColor; }
-}
-
+.card-badge { position: absolute; top: 16px; left: 16px; font-family: 'Press Start 2P'; font-size: 9px; padding: 8px 14px; border: 3px solid #000; border-radius: 6px; box-shadow: 3px 3px 0 rgba(0,0,0,0.3); animation: badgeGlow 2s infinite; z-index: 5; }
+@keyframes badgeGlow { 0%,100% { box-shadow: 3px 3px 0 rgba(0,0,0,0.3); } 50% { box-shadow: 3px 3px 0 rgba(0,0,0,0.3), 0 0 15px currentColor; } }
 .card-badge.sale { background: #FF2D7D; color: white; }
 .card-badge.new { background: #00D9FF; color: #000; }
 .card-badge.hot { background: #FFE600; color: #000; }
 
-/* 信息区 */
-.card-info {
-    padding: 24px;
-    background: white;
-}
-
-.card-meta {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 12px;
-    align-items: center;
-}
-
-.card-type {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 8px;
-    color: #9D4EDD;
-    background: rgba(157,78,221,0.1);
-    padding: 4px 8px;
-    border-radius: 4px;
-}
-
-.card-stock {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 8px;
-}
-
+.card-info { padding: 24px; background: white; }
+.card-meta { display: flex; justify-content: space-between; margin-bottom: 12px; align-items: center; }
+.card-type { font-family: 'Press Start 2P'; font-size: 8px; color: #9D4EDD; background: rgba(157,78,221,0.1); padding: 4px 8px; border-radius: 4px; }
+.card-stock { font-family: 'Press Start 2P'; font-size: 8px; }
 .card-stock.in { color: #00D9FF; }
 .card-stock.out { color: #FF2D7D; }
+.card-title { font-family: 'Press Start 2P'; font-size: 11px; color: #000; line-height: 1.6; margin-bottom: 16px; min-height: 36px; }
+.card-footer { display: flex; justify-content: space-between; align-items: center; }
+.current-price { font-size: 22px; font-weight: 800; color: #FF2D7D; }
+.old-price { font-size: 14px; color: #999; text-decoration: line-through; margin-right: 8px; }
+.card-rating { font-size: 14px; color: #FFB800; background: rgba(255,184,0,0.1); padding: 4px 8px; border-radius: 4px; }
 
-.card-title {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 11px;
-    color: #000;
-    line-height: 1.6;
-    margin-bottom: 16px;
-    min-height: 36px;
-}
+.load-more-container { text-align: center; margin-top: 60px; }
+.load-more-btn { background: #FFE600; color: #000; border: 5px solid #000; padding: 24px 48px; font-family: 'Press Start 2P'; font-size: 14px; cursor: pointer; box-shadow: 8px 8px 0 #000; }
+.load-more-btn:hover { transform: translate(4px,4px); box-shadow: 4px 4px 0 #000; }
 
-.card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+.quick-view-modal { position: fixed; inset: 0; z-index: 10000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.quick-view-modal.active { opacity: 1; pointer-events: all; }
+.modal-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.9); }
+.modal-content { position: relative; background: #1a1a2e; border: 5px solid #FFE600; border-radius: 24px; max-width: 500px; width: 90%; box-shadow: 0 0 60px rgba(255,230,0,0.3); transform: scale(0.9); transition: transform 0.3s; overflow: hidden; }
+.quick-view-modal.active .modal-content { transform: scale(1); }
+.modal-close { position: absolute; top: 16px; right: 16px; width: 48px; height: 48px; background: #FF2D7D; border: 4px solid #000; border-radius: 12px; font-size: 24px; color: white; cursor: pointer; z-index: 10; box-shadow: 3px 3px 0 #000; font-family: 'Press Start 2P'; display: flex; align-items: center; justify-content: center; }
+.modal-body { padding: 40px; text-align: center; }
+.modal-image { font-size: 120px; margin-bottom: 20px; animation: modalFloat 3s ease-in-out infinite; }
+@keyframes modalFloat { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(5deg); } }
+.modal-title { font-family: 'Press Start 2P'; font-size: 16px; color: #FFE600; margin-bottom: 16px; line-height: 1.5; }
+.modal-price { font-family: 'Press Start 2P'; font-size: 28px; color: #FF2D7D; margin-bottom: 20px; }
+.modal-desc { color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.8; margin-bottom: 30px; }
+.modal-add-btn { font-family: 'Press Start 2P'; font-size: 14px; padding: 20px 40px; background: #FFE600; border: 4px solid #000; border-radius: 12px; cursor: pointer; box-shadow: 6px 6px 0 #000; }
+.modal-add-btn:hover { transform: translate(3px,3px); box-shadow: 3px 3px 0 #000; background: #00D9FF; }
 
-.current-price {
-    font-size: 22px;
-    font-weight: 800;
-    color: #FF2D7D;
-}
-
-.old-price {
-    font-size: 14px;
-    color: #999;
-    text-decoration: line-through;
-    margin-right: 8px;
-}
-
-.card-rating {
-    font-size: 14px;
-    color: #FFB800;
-    background: rgba(255,184,0,0.1);
-    padding: 4px 8px;
-    border-radius: 4px;
-}
-
-/* 加载更多 */
-.load-more-container {
-    text-align: center;
-    margin-top: 60px;
-}
-
-.load-more-btn {
-    position: relative;
-    background: #FFE600;
-    color: #000;
-    border: 5px solid #000;
-    padding: 24px 48px;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 14px;
-    cursor: pointer;
-    box-shadow: 8px 8px 0 #000;
-    transition: all 0.2s;
-}
-
-.load-more-btn:hover:not(:disabled) {
-    transform: translate(4px, 4px);
-    box-shadow: 4px 4px 0 #000;
-}
-
-.load-more-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-/* 模态框 */
-.quick-view-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 10000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
-}
-
-.quick-view-modal.active {
-    opacity: 1;
-    pointer-events: all;
-}
-
-.modal-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.9);
-}
-
-.modal-content {
-    position: relative;
-    background: #1a1a2e;
-    border: 5px solid #FFE600;
-    border-radius: 24px;
-    max-width: 500px;
-    width: 90%;
-    box-shadow: 0 0 60px rgba(255,230,0,0.3);
-    transform: scale(0.9);
-    transition: transform 0.3s;
-    overflow: hidden;
-}
-
-.quick-view-modal.active .modal-content {
-    transform: scale(1);
-}
-
-.modal-close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 48px;
-    height: 48px;
-    background: #FF2D7D;
-    border: 4px solid #000;
-    border-radius: 12px;
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
-    z-index: 10;
-    box-shadow: 3px 3px 0 #000;
-    font-family: 'Press Start 2P', cursive;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.modal-body {
-    padding: 40px;
-    text-align: center;
-}
-
-.modal-image {
-    font-size: 120px;
-    margin-bottom: 20px;
-    animation: modalFloat 3s ease-in-out infinite;
-}
-
-@keyframes modalFloat {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-15px) rotate(5deg); }
-}
-
-.modal-title {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 16px;
-    color: #FFE600;
-    margin-bottom: 16px;
-    line-height: 1.5;
-}
-
-.modal-price {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 28px;
-    color: #FF2D7D;
-    margin-bottom: 20px;
-}
-
-.modal-desc {
-    color: rgba(255,255,255,0.7);
-    font-size: 14px;
-    line-height: 1.8;
-    margin-bottom: 30px;
-}
-
-.modal-add-btn {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 14px;
-    padding: 20px 40px;
-    background: #FFE600;
-    border: 4px solid #000;
-    border-radius: 12px;
-    cursor: pointer;
-    box-shadow: 6px 6px 0 #000;
-    transition: all 0.2s;
-}
-
-.modal-add-btn:hover {
-    transform: translate(3px, 3px);
-    box-shadow: 3px 3px 0 #000;
-    background: #00D9FF;
-}
-
-/* ========== 手机端优化 ========== */
 @media (max-width: 768px) {
-    /* 页面整体 */
-    .shop-page {
-        padding: 80px 12px 40px;
-    }
-    
-    /* 标题缩小 */
-    .shop-title {
-        font-size: 24px;
-        text-shadow: 2px 2px 0 #FF2D7D, 4px 4px 0 #00D9FF;
-        margin-bottom: 8px;
-    }
-    
-    .shop-subtitle {
-        font-size: 10px;
-    }
-    
-    /* 控制面板紧凑 */
-    .control-panel {
-        padding: 16px;
-        gap: 12px;
-    }
-    
-    /* 搜索框缩小 */
-    .pixel-search {
-        min-width: 100%;
-        padding: 10px 12px;
-    }
-    
-    .pixel-search input {
-        font-size: 9px;
-    }
-    
-    /* 筛选按钮一行显示，缩小 */
-    .filter-chips {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 6px;
-        width: 100%;
-    }
-    
-    .chip {
-        padding: 8px 4px;
-        font-size: 8px;
-        text-align: center;
-    }
-    
-    /* 下拉菜单缩小 */
-    .pixel-dropdown-btn {
-        min-width: 100%;
-        padding: 12px 16px;
-        font-size: 8px;
-    }
-    
-    /* 产品网格 - 手机端一行2个 */
-    .products-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-    
-    /* 产品卡片缩小 */
-    .card-image-wrapper {
-        height: 140px;
-    }
-    
-    .product-img-placeholder {
-        font-size: 50px;
-    }
-    
-    .product-pixel-card:hover {
-        transform: none;
-    }
-    
-    .card-info {
-        padding: 12px;
-    }
-    
-    .card-title {
-        font-size: 9px;
-        min-height: 28px;
-        margin-bottom: 8px;
-    }
-    
-    .card-type, .card-stock {
-        font-size: 7px;
-    }
-    
-    .current-price {
-        font-size: 14px;
-    }
-    
-    .card-rating {
-        font-size: 11px;
-        padding: 2px 6px;
-    }
-    
-    /* 徽章缩小 */
-    .card-badge {
-        font-size: 7px;
-        padding: 4px 8px;
-    }
-    
-    /* 快速操作按钮隐藏 */
-    .quick-actions {
-        display: none;
-    }
-    
-    /* 收藏按钮缩小 */
-    .wishlist-btn {
-        width: 32px;
-        height: 32px;
-        font-size: 14px;
-    }
-    
-    /* 加载更多按钮 */
-    .load-more-btn {
-        padding: 16px 32px;
-        font-size: 11px;
-        box-shadow: 4px 4px 0 #000;
-    }
-    
-    /* 导航栏适配 */
-    .shop-navbar {
-        padding: 12px 16px;
-    }
-    
-    .navbar-logo {
-        font-size: 14px;
-    }
-    
-    .navbar-logo-icon {
-        font-size: 18px;
-    }
-    
-    .navbar-cart {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
-    
-    /* 模态框适配 */
-    .modal-content {
-        max-width: 90%;
-        border-width: 4px;
-    }
-    
-    .modal-body {
-        padding: 24px;
-    }
-    
-    .modal-image {
-        font-size: 80px;
-    }
-    
-    .modal-title {
-        font-size: 12px;
-    }
-    
-    .modal-price {
-        font-size: 20px;
-    }
-    
-    .modal-add-btn {
-        padding: 16px 32px;
-        font-size: 12px;
-    }
+    .shop-page { padding: 80px 12px 40px; }
+    .shop-title { font-size: 24px; text-shadow: 2px 2px 0 #FF2D7D, 4px 4px 0 #00D9FF; margin-bottom: 8px; }
+    .shop-subtitle { font-size: 10px; }
+    .control-panel { padding: 16px; gap: 12px; }
+    .pixel-search { min-width: 100%; padding: 10px 12px; }
+    .pixel-search input { font-size: 9px; }
+    .filter-chips { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; width: 100%; }
+    .chip { padding: 8px 4px; font-size: 8px; text-align: center; }
+    .pixel-dropdown-btn { min-width: 100%; padding: 12px 16px; font-size: 8px; }
+    .products-container { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .card-image-wrapper { height: 140px; }
+    .product-img-placeholder { font-size: 50px; }
+    .card-info { padding: 12px; }
+    .card-title { font-size: 9px; min-height: 28px; margin-bottom: 8px; }
+    .card-type, .card-stock { font-size: 7px; }
+    .current-price { font-size: 14px; }
+    .card-rating { font-size: 11px; padding: 2px 6px; }
+    .card-badge { font-size: 7px; padding: 4px 8px; }
+    .quick-actions { display: none; }
+    .wishlist-btn { width: 32px; height: 32px; font-size: 14px; }
+    .load-more-btn { padding: 16px 32px; font-size: 11px; box-shadow: 4px 4px 0 #000; }
+    .shop-navbar { padding: 12px 16px; }
+    .navbar-logo { font-size: 14px; }
+    .navbar-logo-icon { font-size: 18px; }
+    .navbar-cart { width: 40px; height: 40px; font-size: 16px; }
+    .modal-content { max-width: 90%; border-width: 4px; }
+    .modal-body { padding: 24px; }
+    .modal-image { font-size: 80px; }
+    .modal-title { font-size: 12px; }
+    .modal-price { font-size: 20px; }
+    .modal-add-btn { padding: 16px 32px; font-size: 12px; }
 }
 
-/* 超小屏幕优化 */
 @media (max-width: 375px) {
-    .products-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
-    }
-    
-    .card-image-wrapper {
-        height: 120px;
-    }
-    
-    .card-title {
-        font-size: 8px;
-    }
-    
-    .current-price {
-        font-size: 12px;
-    }
+    .products-container { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .card-image-wrapper { height: 120px; }
+    .card-title { font-size: 8px; }
+    .current-price { font-size: 12px; }
 }
 </style>
 
-<!-- ========== HTML结构 ========== -->
-
-<!-- 导航栏 -->
-<nav class="shop-navbar" id="navbar">
+<nav class="shop-navbar">
     <div class="navbar-container">
-        <a href="/" class="navbar-logo">
-            <span class="navbar-logo-icon">👾</span>
-            <span>HOLY MOLY</span>
-        </a>
+        <a href="/" class="navbar-logo"><span class="navbar-logo-icon">👾</span><span>HOLY MOLY</span></a>
         <ul class="navbar-menu">
             <li><a href="/pages/shop" class="navbar-link active">🛒 SHOP</a></li>
             <li><a href="/#custom" class="navbar-link">🎨 CUSTOM</a></li>
             <li><a href="/#features" class="navbar-link">✨ FEATURES</a></li>
             <li><a href="/#contact" class="navbar-link">📧 CONTACT</a></li>
         </ul>
-        <div class="navbar-cart" onclick="openCart()">
-            🛒
-            <span class="cart-badge hidden" id="cartBadge">0</span>
-        </div>
-        <button class="hamburger" onclick="toggleMobileMenu()">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </button>
+        <div class="navbar-cart" onclick="openCart()">🛒<span class="cart-badge hidden" id="cartBadge">0</span></div>
+        <button class="hamburger" onclick="toggleMobileMenu()"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button>
     </div>
 </nav>
 
-<!-- 移动端菜单 -->
 <div class="mobile-menu" id="mobileMenu">
     <a href="/pages/shop" class="navbar-link active">🛒 SHOP</a>
     <a href="/#custom" class="navbar-link">🎨 CUSTOM</a>
     <a href="/#features" class="navbar-link">✨ FEATURES</a>
     <a href="/#contact" class="navbar-link">📧 CONTACT</a>
-    <div class="navbar-cart" onclick="openCart(); toggleMobileMenu();">
-        🛒
-        <span class="cart-badge hidden" id="cartBadgeMobile">0</span>
-    </div>
+    <div class="navbar-cart" onclick="openCart(); toggleMobileMenu();">🛒<span class="cart-badge hidden" id="cartBadgeMobile">0</span></div>
 </div>
 
 <div class="shop-page">
@@ -1045,10 +189,7 @@
     </div>
 
     <div class="control-panel">
-        <div class="pixel-search">
-            <span class="search-icon">🔍</span>
-            <input type="text" id="searchInput" placeholder="SEARCH ITEMS..." onkeyup="searchProducts()">
-        </div>
+        <div class="pixel-search"><span class="search-icon">🔍</span><input type="text" id="searchInput" placeholder="SEARCH ITEMS..." onkeyup="searchProducts()"></div>
         <div class="filter-chips">
             <button class="chip active" onclick="filterProducts('all', this)">ALL</button>
             <button class="chip" onclick="filterProducts('keychain', this)">KEYCHAINS</button>
@@ -1056,60 +197,29 @@
             <button class="chip" onclick="filterProducts('diy', this)">DIY KITS</button>
         </div>
         <div class="pixel-dropdown" id="sortDropdown">
-            <button class="pixel-dropdown-btn" onclick="toggleDropdown()">
-                <span class="dropdown-icon">🆕</span>
-                <span class="dropdown-text" id="sortText">NEWEST</span>
-                <span class="dropdown-arrow">▼</span>
-            </button>
+            <button class="pixel-dropdown-btn" onclick="toggleDropdown()"><span>🆕</span><span id="sortText">NEWEST</span><span class="dropdown-arrow">▼</span></button>
             <div class="pixel-dropdown-menu">
-                <div class="dropdown-item active" onclick="selectSort('newest', '🆕', 'NEWEST')">
-                    <span>🆕</span><span>NEWEST</span>
-                </div>
-                <div class="dropdown-item" onclick="selectSort('price-low', '💰', 'PRICE: LOW TO HIGH')">
-                    <span>💰</span><span>PRICE: LOW TO HIGH</span>
-                </div>
-                <div class="dropdown-item" onclick="selectSort('price-high', '💎', 'PRICE: HIGH TO LOW')">
-                    <span>💎</span><span>PRICE: HIGH TO LOW</span>
-                </div>
-                <div class="dropdown-item" onclick="selectSort('popular', '🔥', 'MOST POPULAR')">
-                    <span>🔥</span><span>MOST POPULAR</span>
-                </div>
+                <div class="dropdown-item active" onclick="selectSort('newest', '🆕', 'NEWEST')"><span>🆕</span><span>NEWEST</span></div>
+                <div class="dropdown-item" onclick="selectSort('price-low', '💰', 'PRICE: LOW TO HIGH')"><span>💰</span><span>PRICE: LOW TO HIGH</span></div>
+                <div class="dropdown-item" onclick="selectSort('price-high', '💎', 'PRICE: HIGH TO LOW')"><span>💎</span><span>PRICE: HIGH TO LOW</span></div>
+                <div class="dropdown-item" onclick="selectSort('popular', '🔥', 'MOST POPULAR')"><span>🔥</span><span>MOST POPULAR</span></div>
             </div>
         </div>
     </div>
 
     <div class="products-container" id="productsContainer">
-        
         <!-- 产品1 -->
         <div class="product-pixel-card" data-category="keychain" data-price="18" data-name="mario mushroom keychain" data-id="1">
             <div class="card-inner">
                 <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
                 <div class="quick-actions" onclick="event.stopPropagation()">
                     <button class="quick-btn quick-view" onclick="quickView('Mario Mushroom Keychain', '🍄', '$18.00')">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
+                    <button class="quick-btn add-cart" onclick="addProductToCart(1, 'Mario Mushroom Keychain', 18, '🍄')">🛒 ADD</button>
                 </div>
-                <div class="card-image-wrapper">
-                    <div class="card-image" style="background: linear-gradient(145deg, #FFE600, #FFB800);">
-                        <div class="product-img-placeholder">🍄</div>
-                    </div>
-                    <span class="card-badge hot">HOT</span>
-                </div>
-                <div class="card-info">
-                    <div class="card-meta">
-                        <span class="card-type">KEYCHAIN</span>
-                        <span class="card-stock in">● IN STOCK</span>
-                    </div>
-                    <h3 class="card-title">Mario Mushroom Keychain</h3>
-                    <div class="card-footer">
-                        <span class="current-price">$18.00</span>
-                        <span class="card-rating">⭐ 4.9</span>
-                    </div>
-                </div>
+                <div class="card-image-wrapper"><div class="card-image" style="background: linear-gradient(145deg, #FFE600, #FFB800);"><div class="product-img-placeholder">🍄</div></div><span class="card-badge hot">HOT</span></div>
+                <div class="card-info"><div class="card-meta"><span class="card-type">KEYCHAIN</span><span class="card-stock in">● IN STOCK</span></div><h3 class="card-title">Mario Mushroom Keychain</h3><div class="card-footer"><span class="current-price">$18.00</span><span class="card-rating">⭐ 4.9</span></div></div>
             </div>
-            <div class="pixel-corners">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-            </div>
+            <div class="pixel-corners"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
         </div>
 
         <!-- 产品2 -->
@@ -1118,30 +228,12 @@
                 <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
                 <div class="quick-actions" onclick="event.stopPropagation()">
                     <button class="quick-btn quick-view" onclick="quickView('Pikachu Sprite Keychain', '⚡', '$22.00')">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
+                    <button class="quick-btn add-cart" onclick="addProductToCart(2, 'Pikachu Sprite Keychain', 22, '⚡')">🛒 ADD</button>
                 </div>
-                <div class="card-image-wrapper">
-                    <div class="card-image" style="background: linear-gradient(135deg, #FF6B9D, #C44569);">
-                        <div class="product-img-placeholder">⚡</div>
-                    </div>
-                    <span class="card-badge new">NEW</span>
-                </div>
-                <div class="card-info">
-                    <div class="card-meta">
-                        <span class="card-type">KEYCHAIN</span>
-                        <span class="card-stock in">● IN STOCK</span>
-                    </div>
-                    <h3 class="card-title">Pikachu Sprite Keychain</h3>
-                    <div class="card-footer">
-                        <span class="current-price">$22.00</span>
-                        <span class="card-rating">⭐ 4.8</span>
-                    </div>
-                </div>
+                <div class="card-image-wrapper"><div class="card-image" style="background: linear-gradient(135deg, #FF6B9D, #C44569);"><div class="product-img-placeholder">⚡</div></div><span class="card-badge new">NEW</span></div>
+                <div class="card-info"><div class="card-meta"><span class="card-type">KEYCHAIN</span><span class="card-stock in">● IN STOCK</span></div><h3 class="card-title">Pikachu Sprite Keychain</h3><div class="card-footer"><span class="current-price">$22.00</span><span class="card-rating">⭐ 4.8</span></div></div>
             </div>
-            <div class="pixel-corners">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-            </div>
+            <div class="pixel-corners"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
         </div>
 
         <!-- 产品3 -->
@@ -1150,31 +242,12 @@
                 <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
                 <div class="quick-actions" onclick="event.stopPropagation()">
                     <button class="quick-btn quick-view" onclick="quickView('Retro Controller Magnet', '🎮', '$28.00')">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
+                    <button class="quick-btn add-cart" onclick="addProductToCart(3, 'Retro Controller Magnet', 28, '🎮')">🛒 ADD</button>
                 </div>
-                <div class="card-image-wrapper">
-                    <div class="card-image" style="background: linear-gradient(135deg, #4ECDC4, #44A3AA);">
-                        <div class="product-img-placeholder">🎮</div>
-                    </div>
-                    <span class="card-badge sale">-20%</span>
-                </div>
-                <div class="card-info">
-                    <div class="card-meta">
-                        <span class="card-type">MAGNET</span>
-                        <span class="card-stock in">● IN STOCK</span>
-                    </div>
-                    <h3 class="card-title">Retro Controller Magnet</h3>
-                    <div class="card-footer">
-                        <span class="current-price">$28.00</span>
-                        <span class="old-price">$35.00</span>
-                        <span class="card-rating">⭐ 4.7</span>
-                    </div>
-                </div>
+                <div class="card-image-wrapper"><div class="card-image" style="background: linear-gradient(135deg, #4ECDC4, #44A3AA);"><div class="product-img-placeholder">🎮</div></div><span class="card-badge sale">-20%</span></div>
+                <div class="card-info"><div class="card-meta"><span class="card-type">MAGNET</span><span class="card-stock in">● IN STOCK</span></div><h3 class="card-title">Retro Controller Magnet</h3><div class="card-footer"><span class="current-price">$28.00</span><span class="old-price">$35.00</span><span class="card-rating">⭐ 4.7</span></div></div>
             </div>
-            <div class="pixel-corners">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-            </div>
+            <div class="pixel-corners"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
         </div>
 
         <!-- 产品4 -->
@@ -1183,30 +256,12 @@
                 <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
                 <div class="quick-actions" onclick="event.stopPropagation()">
                     <button class="quick-btn quick-view" onclick="quickView('Star Power Keychain', '⭐', '$15.00')">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
+                    <button class="quick-btn add-cart" onclick="addProductToCart(4, 'Star Power Keychain', 15, '⭐')">🛒 ADD</button>
                 </div>
-                <div class="card-image-wrapper">
-                    <div class="card-image" style="background: linear-gradient(135deg, #FFD93D, #FFA502);">
-                        <div class="product-img-placeholder">⭐</div>
-                    </div>
-                    <span class="card-badge sale">SALE</span>
-                </div>
-                <div class="card-info">
-                    <div class="card-meta">
-                        <span class="card-type">KEYCHAIN</span>
-                        <span class="card-stock in">● IN STOCK</span>
-                    </div>
-                    <h3 class="card-title">Star Power Keychain</h3>
-                    <div class="card-footer">
-                        <span class="current-price">$15.00</span>
-                        <span class="card-rating">⭐ 5.0</span>
-                    </div>
-                </div>
+                <div class="card-image-wrapper"><div class="card-image" style="background: linear-gradient(135deg, #FFD93D, #FFA502);"><div class="product-img-placeholder">⭐</div></div><span class="card-badge sale">SALE</span></div>
+                <div class="card-info"><div class="card-meta"><span class="card-type">KEYCHAIN</span><span class="card-stock in">● IN STOCK</span></div><h3 class="card-title">Star Power Keychain</h3><div class="card-footer"><span class="current-price">$15.00</span><span class="card-rating">⭐ 5.0</span></div></div>
             </div>
-            <div class="pixel-corners">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-            </div>
+            <div class="pixel-corners"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
         </div>
 
         <!-- 产品5 -->
@@ -1215,30 +270,12 @@
                 <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
                 <div class="quick-actions" onclick="event.stopPropagation()">
                     <button class="quick-btn quick-view" onclick="quickView('Pixel Art Starter Kit', '🎨', '$45.00')">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
+                    <button class="quick-btn add-cart" onclick="addProductToCart(5, 'Pixel Art Starter Kit', 45, '🎨')">🛒 ADD</button>
                 </div>
-                <div class="card-image-wrapper">
-                    <div class="card-image" style="background: linear-gradient(135deg, #9D4EDD, #FF6B6B);">
-                        <div class="product-img-placeholder">🎨</div>
-                    </div>
-                    <span class="card-badge new">NEW</span>
-                </div>
-                <div class="card-info">
-                    <div class="card-meta">
-                        <span class="card-type">DIY KIT</span>
-                        <span class="card-stock in">● IN STOCK</span>
-                    </div>
-                    <h3 class="card-title">Pixel Art Starter Kit</h3>
-                    <div class="card-footer">
-                        <span class="current-price">$45.00</span>
-                        <span class="card-rating">⭐ 4.9</span>
-                    </div>
-                </div>
+                <div class="card-image-wrapper"><div class="card-image" style="background: linear-gradient(135deg, #9D4EDD, #FF6B6B);"><div class="product-img-placeholder">🎨</div></div><span class="card-badge new">NEW</span></div>
+                <div class="card-info"><div class="card-meta"><span class="card-type">DIY KIT</span><span class="card-stock in">● IN STOCK</span></div><h3 class="card-title">Pixel Art Starter Kit</h3><div class="card-footer"><span class="current-price">$45.00</span><span class="card-rating">⭐ 4.9</span></div></div>
             </div>
-            <div class="pixel-corners">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-            </div>
+            <div class="pixel-corners"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
         </div>
 
         <!-- 产品6 -->
@@ -1247,29 +284,12 @@
                 <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
                 <div class="quick-actions" onclick="event.stopPropagation()">
                     <button class="quick-btn quick-view" onclick="quickView('Link Sword Keychain', '⚔️', '$20.00')">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
+                    <button class="quick-btn add-cart" onclick="addProductToCart(6, 'Link Sword Keychain', 20, '⚔️')">🛒 ADD</button>
                 </div>
-                <div class="card-image-wrapper">
-                    <div class="card-image" style="background: linear-gradient(135deg, #74B9FF, #0984E3);">
-                        <div class="product-img-placeholder">⚔️</div>
-                    </div>
-                </div>
-                <div class="card-info">
-                    <div class="card-meta">
-                        <span class="card-type">KEYCHAIN</span>
-                        <span class="card-stock out">○ SOLD OUT</span>
-                    </div>
-                    <h3 class="card-title">Link Sword Keychain</h3>
-                    <div class="card-footer">
-                        <span class="current-price">$20.00</span>
-                        <span class="card-rating">⭐ 4.6</span>
-                    </div>
-                </div>
+                <div class="card-image-wrapper"><div class="card-image" style="background: linear-gradient(135deg, #74B9FF, #0984E3);"><div class="product-img-placeholder">⚔️</div></div></div>
+                <div class="card-info"><div class="card-meta"><span class="card-type">KEYCHAIN</span><span class="card-stock out">○ SOLD OUT</span></div><h3 class="card-title">Link Sword Keychain</h3><div class="card-footer"><span class="current-price">$20.00</span><span class="card-rating">⭐ 4.6</span></div></div>
             </div>
-            <div class="pixel-corners">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-            </div>
+            <div class="pixel-corners"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
         </div>
 
         <!-- 产品7 -->
@@ -1278,30 +298,12 @@
                 <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
                 <div class="quick-actions" onclick="event.stopPropagation()">
                     <button class="quick-btn quick-view" onclick="quickView('Pacman Ghost Magnet Set', '👻', '$25.00')">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
+                    <button class="quick-btn add-cart" onclick="addProductToCart(7, 'Pacman Ghost Magnet Set', 25, '👻')">🛒 ADD</button>
                 </div>
-                <div class="card-image-wrapper">
-                    <div class="card-image" style="background: linear-gradient(135deg, #FF7675, #D63031);">
-                        <div class="product-img-placeholder">👻</div>
-                    </div>
-                    <span class="card-badge hot">HOT</span>
-                </div>
-                <div class="card-info">
-                    <div class="card-meta">
-                        <span class="card-type">MAGNET</span>
-                        <span class="card-stock in">● IN STOCK</span>
-                    </div>
-                    <h3 class="card-title">Pacman Ghost Magnet Set</h3>
-                    <div class="card-footer">
-                        <span class="current-price">$25.00</span>
-                        <span class="card-rating">⭐ 4.8</span>
-                    </div>
-                </div>
+                <div class="card-image-wrapper"><div class="card-image" style="background: linear-gradient(135deg, #FF7675, #D63031);"><div class="product-img-placeholder">👻</div></div><span class="card-badge hot">HOT</span></div>
+                <div class="card-info"><div class="card-meta"><span class="card-type">MAGNET</span><span class="card-stock in">● IN STOCK</span></div><h3 class="card-title">Pacman Ghost Magnet Set</h3><div class="card-footer"><span class="current-price">$25.00</span><span class="card-rating">⭐ 4.8</span></div></div>
             </div>
-            <div class="pixel-corners">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-            </div>
+            <div class="pixel-corners"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
         </div>
 
         <!-- 产品8 -->
@@ -1310,29 +312,12 @@
                 <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
                 <div class="quick-actions" onclick="event.stopPropagation()">
                     <button class="quick-btn quick-view" onclick="quickView('Pokeball Keychain', '🔴', '$19.00')">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
+                    <button class="quick-btn add-cart" onclick="addProductToCart(8, 'Pokeball Keychain', 19, '🔴')">🛒 ADD</button>
                 </div>
-                <div class="card-image-wrapper">
-                    <div class="card-image" style="background: linear-gradient(135deg, #FFFFFF, #FF0000);">
-                        <div class="product-img-placeholder">🔴</div>
-                    </div>
-                </div>
-                <div class="card-info">
-                    <div class="card-meta">
-                        <span class="card-type">KEYCHAIN</span>
-                        <span class="card-stock in">● IN STOCK</span>
-                    </div>
-                    <h3 class="card-title">Pokeball Keychain</h3>
-                    <div class="card-footer">
-                        <span class="current-price">$19.00</span>
-                        <span class="card-rating">⭐ 4.7</span>
-                    </div>
-                </div>
+                <div class="card-image-wrapper"><div class="card-image" style="background: linear-gradient(135deg, #FFFFFF, #FF0000);"><div class="product-img-placeholder">🔴</div></div></div>
+                <div class="card-info"><div class="card-meta"><span class="card-type">KEYCHAIN</span><span class="card-stock in">● IN STOCK</span></div><h3 class="card-title">Pokeball Keychain</h3><div class="card-footer"><span class="current-price">$19.00</span><span class="card-rating">⭐ 4.7</span></div></div>
             </div>
-            <div class="pixel-corners">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-            </div>
+            <div class="pixel-corners"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
         </div>
 
         <!-- 产品9 -->
@@ -1341,31 +326,12 @@
                 <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
                 <div class="quick-actions" onclick="event.stopPropagation()">
                     <button class="quick-btn quick-view" onclick="quickView('Space Invaders Bead Kit', '👾', '$38.00')">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
+                    <button class="quick-btn add-cart" onclick="addProductToCart(9, 'Space Invaders Bead Kit', 38, '👾')">🛒 ADD</button>
                 </div>
-                <div class="card-image-wrapper">
-                    <div class="card-image" style="background: linear-gradient(135deg, #00B894, #00CEC9);">
-                        <div class="product-img-placeholder">👾</div>
-                    </div>
-                    <span class="card-badge sale">-15%</span>
-                </div>
-                <div class="card-info">
-                    <div class="card-meta">
-                        <span class="card-type">DIY KIT</span>
-                        <span class="card-stock in">● IN STOCK</span>
-                    </div>
-                    <h3 class="card-title">Space Invaders Bead Kit</h3>
-                    <div class="card-footer">
-                        <span class="current-price">$38.00</span>
-                        <span class="old-price">$45.00</span>
-                        <span class="card-rating">⭐ 4.5</span>
-                    </div>
-                </div>
+                <div class="card-image-wrapper"><div class="card-image" style="background: linear-gradient(135deg, #00B894, #00CEC9);"><div class="product-img-placeholder">👾</div></div><span class="card-badge sale">-15%</span></div>
+                <div class="card-info"><div class="card-meta"><span class="card-type">DIY KIT</span><span class="card-stock in">● IN STOCK</span></div><h3 class="card-title">Space Invaders Bead Kit</h3><div class="card-footer"><span class="current-price">$38.00</span><span class="old-price">$45.00</span><span class="card-rating">⭐ 4.5</span></div></div>
             </div>
-            <div class="pixel-corners">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-            </div>
+            <div class="pixel-corners"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
         </div>
 
         <!-- 产品10 -->
@@ -1374,29 +340,12 @@
                 <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
                 <div class="quick-actions" onclick="event.stopPropagation()">
                     <button class="quick-btn quick-view" onclick="quickView('Tetris Block Magnets', '🧱', '$32.00')">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
+                    <button class="quick-btn add-cart" onclick="addProductToCart(10, 'Tetris Block Magnets', 32, '🧱')">🛒 ADD</button>
                 </div>
-                <div class="card-image-wrapper">
-                    <div class="card-image" style="background: linear-gradient(135deg, #A29BFE, #6C5CE7);">
-                        <div class="product-img-placeholder">🧱</div>
-                    </div>
-                </div>
-                <div class="card-info">
-                    <div class="card-meta">
-                        <span class="card-type">MAGNET</span>
-                        <span class="card-stock in">● IN STOCK</span>
-                    </div>
-                    <h3 class="card-title">Tetris Block Magnets</h3>
-                    <div class="card-footer">
-                        <span class="current-price">$32.00</span>
-                        <span class="card-rating">⭐ 4.8</span>
-                    </div>
-                </div>
+                <div class="card-image-wrapper"><div class="card-image" style="background: linear-gradient(135deg, #A29BFE, #6C5CE7);"><div class="product-img-placeholder">🧱</div></div></div>
+                <div class="card-info"><div class="card-meta"><span class="card-type">MAGNET</span><span class="card-stock in">● IN STOCK</span></div><h3 class="card-title">Tetris Block Magnets</h3><div class="card-footer"><span class="current-price">$32.00</span><span class="card-rating">⭐ 4.8</span></div></div>
             </div>
-            <div class="pixel-corners">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-            </div>
+            <div class="pixel-corners"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
         </div>
 
         <!-- 产品11 -->
@@ -1405,30 +354,12 @@
                 <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
                 <div class="quick-actions" onclick="event.stopPropagation()">
                     <button class="quick-btn quick-view" onclick="quickView('Sonic Ring Keychain', '💍', '$24.00')">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
+                    <button class="quick-btn add-cart" onclick="addProductToCart(11, 'Sonic Ring Keychain', 24, '💍')">🛒 ADD</button>
                 </div>
-                <div class="card-image-wrapper">
-                    <div class="card-image" style="background: linear-gradient(135deg, #FDCB6E, #E17055);">
-                        <div class="product-img-placeholder">💍</div>
-                    </div>
-                    <span class="card-badge new">NEW</span>
-                </div>
-                <div class="card-info">
-                    <div class="card-meta">
-                        <span class="card-type">KEYCHAIN</span>
-                        <span class="card-stock in">● IN STOCK</span>
-                    </div>
-                    <h3 class="card-title">Sonic Ring Keychain</h3>
-                    <div class="card-footer">
-                        <span class="current-price">$24.00</span>
-                        <span class="card-rating">⭐ 4.9</span>
-                    </div>
-                </div>
+                <div class="card-image-wrapper"><div class="card-image" style="background: linear-gradient(135deg, #FDCB6E, #E17055);"><div class="product-img-placeholder">💍</div></div><span class="card-badge new">NEW</span></div>
+                <div class="card-info"><div class="card-meta"><span class="card-type">KEYCHAIN</span><span class="card-stock in">● IN STOCK</span></div><h3 class="card-title">Sonic Ring Keychain</h3><div class="card-footer"><span class="current-price">$24.00</span><span class="card-rating">⭐ 4.9</span></div></div>
             </div>
-            <div class="pixel-corners">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-            </div>
+            <div class="pixel-corners"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
         </div>
 
         <!-- 产品12 -->
@@ -1437,29 +368,12 @@
                 <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
                 <div class="quick-actions" onclick="event.stopPropagation()">
                     <button class="quick-btn quick-view" onclick="quickView('Heart Container Keychain', '❤️', '$16.00')">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
+                    <button class="quick-btn add-cart" onclick="addProductToCart(12, 'Heart Container Keychain', 16, '❤️')">🛒 ADD</button>
                 </div>
-                <div class="card-image-wrapper">
-                    <div class="card-image" style="background: linear-gradient(135deg, #FF6B9D, #C44569);">
-                        <div class="product-img-placeholder">❤️</div>
-                    </div>
-                </div>
-                <div class="card-info">
-                    <div class="card-meta">
-                        <span class="card-type">KEYCHAIN</span>
-                        <span class="card-stock in">● IN STOCK</span>
-                    </div>
-                    <h3 class="card-title">Heart Container Keychain</h3>
-                    <div class="card-footer">
-                        <span class="current-price">$16.00</span>
-                        <span class="card-rating">⭐ 4.8</span>
-                    </div>
-                </div>
+                <div class="card-image-wrapper"><div class="card-image" style="background: linear-gradient(135deg, #FF6B9D, #C44569);"><div class="product-img-placeholder">❤️</div></div></div>
+                <div class="card-info"><div class="card-meta"><span class="card-type">KEYCHAIN</span><span class="card-stock in">● IN STOCK</span></div><h3 class="card-title">Heart Container Keychain</h3><div class="card-footer"><span class="current-price">$16.00</span><span class="card-rating">⭐ 4.8</span></div></div>
             </div>
-            <div class="pixel-corners">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-            </div>
+            <div class="pixel-corners"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
         </div>
 
         <!-- 产品13 -->
@@ -1468,30 +382,12 @@
                 <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
                 <div class="quick-actions" onclick="event.stopPropagation()">
                     <button class="quick-btn quick-view" onclick="quickView('8-Bit Character Magnets', '🦸', '$30.00')">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
+                    <button class="quick-btn add-cart" onclick="addProductToCart(13, '8-Bit Character Magnets', 30, '🦸')">🛒 ADD</button>
                 </div>
-                <div class="card-image-wrapper">
-                    <div class="card-image" style="background: linear-gradient(135deg, #74B9FF, #0984E3);">
-                        <div class="product-img-placeholder">🦸</div>
-                    </div>
-                    <span class="card-badge hot">HOT</span>
-                </div>
-                <div class="card-info">
-                    <div class="card-meta">
-                        <span class="card-type">MAGNET</span>
-                        <span class="card-stock in">● IN STOCK</span>
-                    </div>
-                    <h3 class="card-title">8-Bit Character Magnets</h3>
-                    <div class="card-footer">
-                        <span class="current-price">$30.00</span>
-                        <span class="card-rating">⭐ 4.7</span>
-                    </div>
-                </div>
+                <div class="card-image-wrapper"><div class="card-image" style="background: linear-gradient(135deg, #74B9FF, #0984E3);"><div class="product-img-placeholder">🦸</div></div><span class="card-badge hot">HOT</span></div>
+                <div class="card-info"><div class="card-meta"><span class="card-type">MAGNET</span><span class="card-stock in">● IN STOCK</span></div><h3 class="card-title">8-Bit Character Magnets</h3><div class="card-footer"><span class="current-price">$30.00</span><span class="card-rating">⭐ 4.7</span></div></div>
             </div>
-            <div class="pixel-corners">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-            </div>
+            <div class="pixel-corners"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
         </div>
 
         <!-- 产品14 -->
@@ -1500,31 +396,12 @@
                 <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
                 <div class="quick-actions" onclick="event.stopPropagation()">
                     <button class="quick-btn quick-view" onclick="quickView('Custom Portrait Kit', '🖼️', '$55.00')">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
+                    <button class="quick-btn add-cart" onclick="addProductToCart(14, 'Custom Portrait Kit', 55, '🖼️')">🛒 ADD</button>
                 </div>
-                <div class="card-image-wrapper">
-                    <div class="card-image" style="background: linear-gradient(135deg, #FD79A8, #E84393);">
-                        <div class="product-img-placeholder">🖼️</div>
-                    </div>
-                    <span class="card-badge sale">-10%</span>
-                </div>
-                <div class="card-info">
-                    <div class="card-meta">
-                        <span class="card-type">DIY KIT</span>
-                        <span class="card-stock in">● IN STOCK</span>
-                    </div>
-                    <h3 class="card-title">Custom Portrait Kit</h3>
-                    <div class="card-footer">
-                        <span class="current-price">$55.00</span>
-                        <span class="old-price">$61.00</span>
-                        <span class="card-rating">⭐ 5.0</span>
-                    </div>
-                </div>
+                <div class="card-image-wrapper"><div class="card-image" style="background: linear-gradient(135deg, #FD79A8, #E84393);"><div class="product-img-placeholder">🖼️</div></div><span class="card-badge sale">-10%</span></div>
+                <div class="card-info"><div class="card-meta"><span class="card-type">DIY KIT</span><span class="card-stock in">● IN STOCK</span></div><h3 class="card-title">Custom Portrait Kit</h3><div class="card-footer"><span class="current-price">$55.00</span><span class="old-price">$61.00</span><span class="card-rating">⭐ 5.0</span></div></div>
             </div>
-            <div class="pixel-corners">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-            </div>
+            <div class="pixel-corners"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
         </div>
 
         <!-- 产品15 -->
@@ -1533,30 +410,12 @@
                 <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
                 <div class="quick-actions" onclick="event.stopPropagation()">
                     <button class="quick-btn quick-view" onclick="quickView('Diamond Pickaxe Keychain', '⛏️', '$21.00')">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
+                    <button class="quick-btn add-cart" onclick="addProductToCart(15, 'Diamond Pickaxe Keychain', 21, '⛏️')">🛒 ADD</button>
                 </div>
-                <div class="card-image-wrapper">
-                    <div class="card-image" style="background: linear-gradient(135deg, #00CEC9, #81ECEC);">
-                        <div class="product-img-placeholder">⛏️</div>
-                    </div>
-                    <span class="card-badge new">NEW</span>
-                </div>
-                <div class="card-info">
-                    <div class="card-meta">
-                        <span class="card-type">KEYCHAIN</span>
-                        <span class="card-stock in">● IN STOCK</span>
-                    </div>
-                    <h3 class="card-title">Diamond Pickaxe Keychain</h3>
-                    <div class="card-footer">
-                        <span class="current-price">$21.00</span>
-                        <span class="card-rating">⭐ 4.6</span>
-                    </div>
-                </div>
+                <div class="card-image-wrapper"><div class="card-image" style="background: linear-gradient(135deg, #00CEC9, #81ECEC);"><div class="product-img-placeholder">⛏️</div></div><span class="card-badge new">NEW</span></div>
+                <div class="card-info"><div class="card-meta"><span class="card-type">KEYCHAIN</span><span class="card-stock in">● IN STOCK</span></div><h3 class="card-title">Diamond Pickaxe Keychain</h3><div class="card-footer"><span class="current-price">$21.00</span><span class="card-rating">⭐ 4.6</span></div></div>
             </div>
-            <div class="pixel-corners">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-            </div>
+            <div class="pixel-corners"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
         </div>
 
         <!-- 产品16 -->
@@ -1565,29 +424,12 @@
                 <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
                 <div class="quick-actions" onclick="event.stopPropagation()">
                     <button class="quick-btn quick-view" onclick="quickView('Pixel Food Magnet Set', '🍕', '$27.00')">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
+                    <button class="quick-btn add-cart" onclick="addProductToCart(16, 'Pixel Food Magnet Set', 27, '🍕')">🛒 ADD</button>
                 </div>
-                <div class="card-image-wrapper">
-                    <div class="card-image" style="background: linear-gradient(135deg, #FDCB6E, #E17055);">
-                        <div class="product-img-placeholder">🍕</div>
-                    </div>
-                </div>
-                <div class="card-info">
-                    <div class="card-meta">
-                        <span class="card-type">MAGNET</span>
-                        <span class="card-stock out">○ SOLD OUT</span>
-                    </div>
-                    <h3 class="card-title">Pixel Food Magnet Set</h3>
-                    <div class="card-footer">
-                        <span class="current-price">$27.00</span>
-                        <span class="card-rating">⭐ 4.8</span>
-                    </div>
-                </div>
+                <div class="card-image-wrapper"><div class="card-image" style="background: linear-gradient(135deg, #FDCB6E, #E17055);"><div class="product-img-placeholder">🍕</div></div></div>
+                <div class="card-info"><div class="card-meta"><span class="card-type">MAGNET</span><span class="card-stock out">○ SOLD OUT</span></div><h3 class="card-title">Pixel Food Magnet Set</h3><div class="card-footer"><span class="current-price">$27.00</span><span class="card-rating">⭐ 4.8</span></div></div>
             </div>
-            <div class="pixel-corners">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-            </div>
+            <div class="pixel-corners"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
         </div>
 
         <!-- 产品17 -->
@@ -1596,29 +438,12 @@
                 <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
                 <div class="quick-actions" onclick="event.stopPropagation()">
                     <button class="quick-btn quick-view" onclick="quickView('Yoshi Egg Keychain', '🥚', '$23.00')">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
+                    <button class="quick-btn add-cart" onclick="addProductToCart(17, 'Yoshi Egg Keychain', 23, '🥚')">🛒 ADD</button>
                 </div>
-                <div class="card-image-wrapper">
-                    <div class="card-image" style="background: linear-gradient(135deg, #FFFFFF, #00B894);">
-                        <div class="product-img-placeholder">🥚</div>
-                    </div>
-                </div>
-                <div class="card-info">
-                    <div class="card-meta">
-                        <span class="card-type">KEYCHAIN</span>
-                        <span class="card-stock in">● IN STOCK</span>
-                    </div>
-                    <h3 class="card-title">Yoshi Egg Keychain</h3>
-                    <div class="card-footer">
-                        <span class="current-price">$23.00</span>
-                        <span class="card-rating">⭐ 4.7</span>
-                    </div>
-                </div>
+                <div class="card-image-wrapper"><div class="card-image" style="background: linear-gradient(135deg, #FFFFFF, #00B894);"><div class="product-img-placeholder">🥚</div></div></div>
+                <div class="card-info"><div class="card-meta"><span class="card-type">KEYCHAIN</span><span class="card-stock in">● IN STOCK</span></div><h3 class="card-title">Yoshi Egg Keychain</h3><div class="card-footer"><span class="current-price">$23.00</span><span class="card-rating">⭐ 4.7</span></div></div>
             </div>
-            <div class="pixel-corners">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-            </div>
+            <div class="pixel-corners"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
         </div>
 
         <!-- 产品18 -->
@@ -1627,30 +452,12 @@
                 <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
                 <div class="quick-actions" onclick="event.stopPropagation()">
                     <button class="quick-btn quick-view" onclick="quickView('Retro Game Cartridge Kit', '🎲', '$42.00')">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
+                    <button class="quick-btn add-cart" onclick="addProductToCart(18, 'Retro Game Cartridge Kit', 42, '🎲')">🛒 ADD</button>
                 </div>
-                <div class="card-image-wrapper">
-                    <div class="card-image" style="background: linear-gradient(135deg, #636E72, #2D3436);">
-                        <div class="product-img-placeholder">🎲</div>
-                    </div>
-                    <span class="card-badge hot">HOT</span>
-                </div>
-                <div class="card-info">
-                    <div class="card-meta">
-                        <span class="card-type">DIY KIT</span>
-                        <span class="card-stock in">● IN STOCK</span>
-                    </div>
-                    <h3 class="card-title">Retro Game Cartridge Kit</h3>
-                    <div class="card-footer">
-                        <span class="current-price">$42.00</span>
-                        <span class="card-rating">⭐ 4.9</span>
-                    </div>
-                </div>
+                <div class="card-image-wrapper"><div class="card-image" style="background: linear-gradient(135deg, #636E72, #2D3436);"><div class="product-img-placeholder">🎲</div></div><span class="card-badge hot">HOT</span></div>
+                <div class="card-info"><div class="card-meta"><span class="card-type">DIY KIT</span><span class="card-stock in">● IN STOCK</span></div><h3 class="card-title">Retro Game Cartridge Kit</h3><div class="card-footer"><span class="current-price">$42.00</span><span class="card-rating">⭐ 4.9</span></div></div>
             </div>
-            <div class="pixel-corners">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-            </div>
+            <div class="pixel-corners"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
         </div>
 
         <!-- 产品19 -->
@@ -1659,31 +466,12 @@
                 <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
                 <div class="quick-actions" onclick="event.stopPropagation()">
                     <button class="quick-btn quick-view" onclick="quickView('Coin Block Keychain', '🪙', '$17.00')">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
+                    <button class="quick-btn add-cart" onclick="addProductToCart(19, 'Coin Block Keychain', 17, '🪙')">🛒 ADD</button>
                 </div>
-                <div class="card-image-wrapper">
-                    <div class="card-image" style="background: linear-gradient(135deg, #FDCB6E, #F39C12);">
-                        <div class="product-img-placeholder">🪙</div>
-                    </div>
-                    <span class="card-badge sale">SALE</span>
-                </div>
-                <div class="card-info">
-                    <div class="card-meta">
-                        <span class="card-type">KEYCHAIN</span>
-                        <span class="card-stock in">● IN STOCK</span>
-                    </div>
-                    <h3 class="card-title">Coin Block Keychain</h3>
-                    <div class="card-footer">
-                        <span class="current-price">$17.00</span>
-                        <span class="old-price">$20.00</span>
-                        <span class="card-rating">⭐ 4.8</span>
-                    </div>
-                </div>
+                <div class="card-image-wrapper"><div class="card-image" style="background: linear-gradient(135deg, #FDCB6E, #F39C12);"><div class="product-img-placeholder">🪙</div></div><span class="card-badge sale">SALE</span></div>
+                <div class="card-info"><div class="card-meta"><span class="card-type">KEYCHAIN</span><span class="card-stock in">● IN STOCK</span></div><h3 class="card-title">Coin Block Keychain</h3><div class="card-footer"><span class="current-price">$17.00</span><span class="old-price">$20.00</span><span class="card-rating">⭐ 4.8</span></div></div>
             </div>
-            <div class="pixel-corners">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-            </div>
+            <div class="pixel-corners"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
         </div>
 
         <!-- 产品20 -->
@@ -1692,40 +480,18 @@
                 <button class="wishlist-btn" onclick="event.stopPropagation(); toggleWishlist(this)">♡</button>
                 <div class="quick-actions" onclick="event.stopPropagation()">
                     <button class="quick-btn quick-view" onclick="quickView('Pixel Pet Magnets', '🐱', '$35.00')">👁️ QUICK VIEW</button>
-                    <button class="quick-btn add-cart" onclick="addToCartFromProduct(this)">🛒 ADD</button>
+                    <button class="quick-btn add-cart" onclick="addProductToCart(20, 'Pixel Pet Magnets', 35, '🐱')">🛒 ADD</button>
                 </div>
-                <div class="card-image-wrapper">
-                    <div class="card-image" style="background: linear-gradient(135deg, #E17055, #D63031);">
-                        <div class="product-img-placeholder">🐱</div>
-                    </div>
-                    <span class="card-badge new">NEW</span>
-                </div>
-                <div class="card-info">
-                    <div class="card-meta">
-                        <span class="card-type">MAGNET</span>
-                        <span class="card-stock in">● IN STOCK</span>
-                    </div>
-                    <h3 class="card-title">Pixel Pet Magnets</h3>
-                    <div class="card-footer">
-                        <span class="current-price">$35.00</span>
-                        <span class="card-rating">⭐ 4.9</span>
-                    </div>
-                </div>
+                <div class="card-image-wrapper"><div class="card-image" style="background: linear-gradient(135deg, #E17055, #D63031);"><div class="product-img-placeholder">🐱</div></div><span class="card-badge new">NEW</span></div>
+                <div class="card-info"><div class="card-meta"><span class="card-type">MAGNET</span><span class="card-stock in">● IN STOCK</span></div><h3 class="card-title">Pixel Pet Magnets</h3><div class="card-footer"><span class="current-price">$35.00</span><span class="card-rating">⭐ 4.9</span></div></div>
             </div>
-            <div class="pixel-corners">
-                <span class="corner tl"></span><span class="corner tr"></span>
-                <span class="corner bl"></span><span class="corner br"></span>
-            </div>
+            <div class="pixel-corners"><span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span></div>
         </div>
-
     </div>
 
-    <div class="load-more-container">
-        <button class="load-more-btn" onclick="loadMore(this)">📦 LOAD MORE LOOT</button>
-    </div>
+    <div class="load-more-container"><button class="load-more-btn" onclick="this.innerHTML='📦 NO MORE LOOT'; this.disabled=true">📦 LOAD MORE LOOT</button></div>
 </div>
 
-<!-- 快速预览模态框 -->
 <div class="quick-view-modal" id="quickViewModal">
     <div class="modal-overlay" onclick="closeQuickView()"></div>
     <div class="modal-content">
@@ -1734,159 +500,63 @@
             <div class="modal-image" id="modalImage">🎮</div>
             <h2 class="modal-title" id="modalTitle">Product Name</h2>
             <div class="modal-price" id="modalPrice">$00.00</div>
-            <p class="modal-desc">Handcrafted pixel art made with 1000+ beads. Each piece is unique and made with love. Perfect for gamers, collectors, and pixel art enthusiasts!</p>
+            <p class="modal-desc">Handcrafted pixel art made with 1000+ beads. Each piece is unique!</p>
             <button class="modal-add-btn" onclick="addToCartFromModal()">🛒 ADD TO CART</button>
         </div>
     </div>
 </div>
 
 <script>
-// ========== 修复后的JavaScript ==========
-let cartCount = 0;
+// ========== 核心功能 ==========
 let currentModalProduct = {};
+let cartCount = 0;
 
-// 移动端菜单
 function toggleMobileMenu() {
     document.getElementById('mobileMenu').classList.toggle('active');
 }
 
-// 下拉菜单
 function toggleDropdown() {
-    const dropdown = document.getElementById('sortDropdown');
-    dropdown.classList.toggle('open');
-    
-    if (dropdown.classList.contains('open')) {
-        setTimeout(() => document.addEventListener('click', closeDropdownOutside), 10);
+    const d = document.getElementById('sortDropdown');
+    d.classList.toggle('open');
+    if (d.classList.contains('open')) {
+        setTimeout(() => document.addEventListener('click', function close(e) {
+            if (!d.contains(e.target)) { d.classList.remove('open'); document.removeEventListener('click', close); }
+        }), 10);
     }
 }
 
-function closeDropdownOutside(e) {
-    const dropdown = document.getElementById('sortDropdown');
-    if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove('open');
-        document.removeEventListener('click', closeDropdownOutside);
-    }
-}
-
-function selectSort(value, icon, text) {
-    document.getElementById('sortText').textContent = text;
-    document.querySelector('.dropdown-icon').textContent = icon;
-    
-    document.querySelectorAll('.dropdown-item').forEach(item => item.classList.remove('active'));
-    event.currentTarget.classList.add('active');
-    
+function selectSort(val, icon, txt) {
+    document.getElementById('sortText').textContent = txt;
+    document.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('active'));
+    event.target.classList.add('active');
     document.getElementById('sortDropdown').classList.remove('open');
-    document.removeEventListener('click', closeDropdownOutside);
-    
-    // 排序动画
-    const container = document.getElementById('productsContainer');
-    const cards = Array.from(container.children);
-    
-    cards.sort((a, b) => {
-        const priceA = parseFloat(a.dataset.price);
-        const priceB = parseFloat(b.dataset.price);
-        if (value === 'price-low') return priceA - priceB;
-        if (value === 'price-high') return priceB - priceA;
-        return 0;
-    });
-    
-    cards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-            container.appendChild(card);
-            card.style.transition = 'all 0.4s ease';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-        }, index * 50);
-    });
-    
-    createPixelBurst(event.currentTarget);
 }
 
-// 像素粒子爆炸
-function createPixelBurst(element) {
-    const rect = element.getBoundingClientRect();
-    const colors = ['#FFE600', '#FF2D7D', '#00D9FF', '#9D4EDD'];
-    
-    for (let i = 0; i < 8; i++) {
-        const particle = document.createElement('div');
-        particle.style.cssText = `
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background: ${colors[Math.floor(Math.random() * colors.length)]};
-            left: ${rect.left + rect.width / 2}px;
-            top: ${rect.top + rect.height / 2}px;
-            pointer-events: none;
-            z-index: 9999;
-            border-radius: 2px;
-        `;
-        const angle = (i * 45) * Math.PI / 180;
-        const tx = Math.cos(angle) * 60;
-        const ty = Math.sin(angle) * 60;
-        
-        particle.animate([
-            { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
-            { transform: `translate(calc(-50% + ${tx}px), calc(-50% + ${ty}px)) scale(0)`, opacity: 0 }
-        ], { duration: 500, easing: 'ease-out' }).onfinish = () => particle.remove();
-        
-        document.body.appendChild(particle);
-    }
-}
-
-// 筛选
-function filterProducts(category, btn) {
+function filterProducts(cat, btn) {
     document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
     btn.classList.add('active');
-    
-    document.querySelectorAll('.product-pixel-card').forEach((card, index) => {
-        if (category === 'all' || card.dataset.category === category) {
-            card.style.display = 'block';
-            setTimeout(() => {
-                card.style.opacity = '1';
-                card.style.transform = 'translateY(0)';
-            }, index * 30);
-        } else {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            setTimeout(() => card.style.display = 'none', 300);
-        }
+    document.querySelectorAll('.product-pixel-card').forEach(card => {
+        card.style.display = (cat === 'all' || card.dataset.category === cat) ? 'block' : 'none';
     });
 }
 
-// 搜索
 function searchProducts() {
     const term = document.getElementById('searchInput').value.toLowerCase();
-    document.querySelectorAll('.product-pixel-card').forEach(card => {
-        if (card.dataset.name.includes(term)) {
-            card.style.display = 'block';
-            card.style.opacity = '1';
-        } else {
-            card.style.display = 'none';
-        }
+    document.querySelectorAll('.product-pixel-card').forEach(c => {
+        c.style.display = c.dataset.name.includes(term) ? 'block' : 'none';
     });
 }
 
-// 收藏 - 修复：移除e参数，直接传this
 function toggleWishlist(btn) {
     btn.classList.toggle('active');
     btn.innerHTML = btn.classList.contains('active') ? '♥' : '♡';
-    
-    if (btn.classList.contains('active')) {
-        btn.style.animation = 'heartBeat 0.4s ease';
-        createPixelBurst(btn);
-    }
 }
 
-// 快速预览 - 修复：移除event参数
 function quickView(title, emoji, price) {
-    currentModalProduct = { title, emoji, price };
-    
+    currentModalProduct = { id: Date.now(), name: title, price: parseFloat(price.replace('$','')), emoji: emoji };
     document.getElementById('modalTitle').textContent = title;
     document.getElementById('modalPrice').textContent = price;
     document.getElementById('modalImage').textContent = emoji;
-    
     document.getElementById('quickViewModal').classList.add('active');
     document.body.style.overflow = 'hidden';
 }
@@ -1896,132 +566,73 @@ function closeQuickView() {
     document.body.style.overflow = '';
 }
 
-// 新增：从产品卡片添加到购物车
-function addToCartFromProduct(btn) {
-    // 阻止事件冒泡
+// ========== 修复：添加到购物车功能 ==========
+function addProductToCart(id, name, price, emoji) {
     event.stopPropagation();
+    const btn = event.target;
+    const original = btn.innerHTML;
     
-    const originalText = btn.innerHTML;
-    
-    // 按钮动画
     btn.innerHTML = '✓ ADDED!';
     btn.style.background = '#00FF00';
     btn.style.transform = 'scale(1.05)';
     
-    // 更新购物车
-    cartCount++;
-    updateCartBadge();
+    // 调用购物车抽屉的添加函数
+    if (typeof window.addToCart === 'function') {
+        window.addToCart({ id: id, name: name, price: price, emoji: emoji, variant: 'Color: Default' });
+    } else {
+        // 备用：直接更新计数
+        cartCount++;
+        updateCartBadge();
+    }
     
-    // 粒子效果
-    createPixelBurst(btn);
-    
-    // 恢复按钮
     setTimeout(() => {
-        btn.innerHTML = originalText;
+        btn.innerHTML = original;
         btn.style.background = '';
         btn.style.transform = '';
     }, 1500);
 }
 
-// 新增：从模态框添加到购物车
 function addToCartFromModal() {
-    const btn = document.querySelector('.modal-add-btn');
-    const originalText = btn.innerHTML;
-    
-    btn.innerHTML = '✓ ADDED!';
-    btn.style.background = '#00FF00';
-    btn.style.transform = 'scale(1.05)';
-    
-    cartCount++;
-    updateCartBadge();
-    createPixelBurst(btn);
-    
-    setTimeout(() => {
-        btn.innerHTML = originalText;
-        btn.style.background = '';
-        btn.style.transform = '';
-        
-        // 关闭模态框
-        closeQuickView();
-    }, 1200);
+    if (typeof window.addToCart === 'function') {
+        window.addToCart({...currentModalProduct, variant: 'Color: Default'});
+    }
+    closeQuickView();
 }
 
-// 更新购物车徽章
+// ========== 修复：打开购物车 ==========
+function openCart() {
+    if (typeof window.openCartDrawer === 'function') {
+        window.openCartDrawer();
+    } else {
+        alert(cartCount === 0 ? '🛒 购物车是空的！' : `🛒 购物车里有 ${cartCount} 个宝贝！`);
+    }
+}
+
 function updateCartBadge() {
     document.querySelectorAll('.cart-badge').forEach(badge => {
         badge.textContent = cartCount;
         badge.classList.remove('hidden');
-        badge.style.animation = 'badgeBounce 0.5s ease';
     });
-    
-    // 同时更新 localStorage 用于跨页面同步
-    localStorage.setItem('holyMolyCartCount', cartCount);
 }
 
-// 修复：购物车点击打开抽屉或提示
-function openCart() {
-    // 检查是否存在购物车抽屉组件
-    const cartDrawer = document.getElementById('cartDrawer');
-    
-    if (cartDrawer && typeof window.openCartDrawer === 'function') {
-        window.openCartDrawer();
-    } else {
-        // 简单的提示，如果有商品则显示数量
-        if (cartCount === 0) {
-            alert('🛒 购物车是空的！快去选购吧 👾');
-        } else {
-            alert(`🛒 购物车里有 ${cartCount} 个宝贝！总计 $${(cartCount * 20).toFixed(2)}`);
-        }
-    }
-}
-
-function loadMore(btn) {
-    btn.innerHTML = '📦 NO MORE LOOT';
-    btn.disabled = true;
-}
-
-// 3D 倾斜效果 + 滚动动画
+// 3D效果
 document.querySelectorAll('.product-pixel-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
+    card.addEventListener('mousemove', e => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = (y - centerY) / 15;
-        const rotateY = (centerX - x) / 15;
+        const rotateX = (y - rect.height/2) / 15;
+        const rotateY = (rect.width/2 - x) / 15;
         card.style.transform = `perspective(1000px) rotateX(${-rotateX}deg) rotateY(${-rotateY}deg) translateZ(10px)`;
     });
-    
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-    });
+    card.addEventListener('mouseleave', () => card.style.transform = '');
 });
 
-// 滚动入场动画
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
+// 滚动动画
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
+document.querySelectorAll('.product-pixel-card').forEach(c => observer.observe(c));
 
-document.querySelectorAll('.product-pixel-card').forEach(card => observer.observe(card));
-
-// ESC关闭模态框
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeQuickView();
-});
-
-// 页面加载时恢复购物车数量
-document.addEventListener('DOMContentLoaded', () => {
-    const savedCount = localStorage.getItem('holyMolyCartCount');
-    if (savedCount) {
-        cartCount = parseInt(savedCount);
-        if (cartCount > 0) {
-            updateCartBadge();
-        }
-    }
-});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeQuickView(); });
 </script>
