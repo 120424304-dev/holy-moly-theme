@@ -861,6 +861,16 @@
   position: relative;
 }
 
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-link:hover {
+  text-decoration: none;
+}
+
 .product-card.visible {
   opacity: 1;
   transform: translateY(0);

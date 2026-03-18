@@ -183,123 +183,139 @@
     
     <div class="products-grid" id="productsGrid">
       <!-- Product 1 -->
-      <div class="product-card" data-category="keychains" onclick="if(!event.target.closest('.add-to-cart')) window.location.href='/products/pixel-mushroom-keychain'" style="cursor:pointer">
-        <div class="product-image" style="--bg:linear-gradient(135deg,#FFE600,#FFB800)">
-          <span class="emoji">🍄</span>
-          <span class="product-tag tag-hot">HOT</span>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Super Mushroom Keychain</h3>
-          <div class="product-meta">
-            <span class="product-price">$18.00</span>
+      <div class="product-card" data-category="keychains" data-url="/products/pixel-mushroom-keychain">
+        <a href="/products/pixel-mushroom-keychain" class="card-link">
+          <div class="product-image" style="--bg:linear-gradient(135deg,#FFE600,#FFB800)">
+            <span class="emoji">🍄</span>
+            <span class="product-tag tag-hot">HOT</span>
           </div>
-        </div>
-        <button class="add-to-cart" data-product="mushroom" onclick="event.stopPropagation(); addToCart(this)" title="Add to Cart">🛒</button>
+          <div class="product-info">
+            <h3 class="product-title">Super Mushroom Keychain</h3>
+            <div class="product-meta">
+              <span class="product-price">$18.00</span>
+            </div>
+          </div>
+        </a>
+        <button class="add-to-cart" data-product="mushroom" title="Add to Cart">🛒</button>
       </div>
 
       <!-- Product 2 -->
-      <div class="product-card" data-category="sprites" onclick="if(!event.target.closest('.add-to-cart')) window.location.href='/products/pixel-pikachu-keychain'" style="cursor:pointer">
-        <div class="product-image" style="--bg:linear-gradient(135deg,#FF6B9D,#C44569)">
-          <span class="emoji">⚡</span>
-          <span class="product-tag tag-new">NEW</span>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Electric Sprite Plush</h3>
-          <div class="product-meta">
-            <span class="product-price">$28.00</span>
+      <div class="product-card" data-category="sprites" data-url="/products/pixel-pikachu-keychain">
+        <a href="/products/pixel-pikachu-keychain" class="card-link">
+          <div class="product-image" style="--bg:linear-gradient(135deg,#FF6B9D,#C44569)">
+            <span class="emoji">⚡</span>
+            <span class="product-tag tag-new">NEW</span>
           </div>
-        </div>
-        <button class="add-to-cart" data-product="pikachu" onclick="event.stopPropagation(); addToCart(this)" title="Add to Cart">🛒</button>
+          <div class="product-info">
+            <h3 class="product-title">Electric Sprite Plush</h3>
+            <div class="product-meta">
+              <span class="product-price">$28.00</span>
+            </div>
+          </div>
+        </a>
+        <button class="add-to-cart" data-product="pikachu" title="Add to Cart">🛒</button>
       </div>
 
       <!-- Product 3 -->
-      <div class="product-card" data-category="sprites" onclick="if(!event.target.closest('.add-to-cart')) window.location.href='/products/pixel-controller-keychain'" style="cursor:pointer">
-        <div class="product-image" style="--bg:linear-gradient(135deg,#4ECDC4,#44A3AA)">
-          <span class="emoji">🎮</span>
-          <span class="product-tag tag-limited">RARE</span>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Retro Controller Art</h3>
-          <div class="product-meta">
-            <span class="product-price">$35.00</span>
+      <div class="product-card" data-category="sprites" data-url="/products/pixel-controller-keychain">
+        <a href="/products/pixel-controller-keychain" class="card-link">
+          <div class="product-image" style="--bg:linear-gradient(135deg,#4ECDC4,#44A3AA)">
+            <span class="emoji">🎮</span>
+            <span class="product-tag tag-limited">RARE</span>
           </div>
-        </div>
-        <button class="add-to-cart" data-product="controller" onclick="event.stopPropagation(); addToCart(this)" title="Add to Cart">🛒</button>
+          <div class="product-info">
+            <h3 class="product-title">Retro Controller Art</h3>
+            <div class="product-meta">
+              <span class="product-price">$35.00</span>
+            </div>
+          </div>
+        </a>
+        <button class="add-to-cart" data-product="controller" title="Add to Cart">🛒</button>
       </div>
 
       <!-- Product 4 -->
-      <div class="product-card" data-category="keychains" onclick="if(!event.target.closest('.add-to-cart')) window.location.href='/products/pixel-star-keychain'" style="cursor:pointer">
-        <div class="product-image" style="--bg:linear-gradient(135deg,#FFD93D,#FFA502)">
-          <span class="emoji">⭐</span>
-          <span class="product-tag tag-sale">SALE</span>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Star Power Keychain</h3>
-          <div class="product-meta">
-            <span class="product-price"><span class="original">$22</span>$15.00</span>
+      <div class="product-card" data-category="keychains" data-url="/products/pixel-star-keychain">
+        <a href="/products/pixel-star-keychain" class="card-link">
+          <div class="product-image" style="--bg:linear-gradient(135deg,#FFD93D,#FFA502)">
+            <span class="emoji">⭐</span>
+            <span class="product-tag tag-sale">SALE</span>
           </div>
-        </div>
-        <button class="add-to-cart" data-product="star" onclick="event.stopPropagation(); addToCart(this)" title="Add to Cart">🛒</button>
+          <div class="product-info">
+            <h3 class="product-title">Star Power Keychain</h3>
+            <div class="product-meta">
+              <span class="product-price"><span class="original">$22</span>$15.00</span>
+            </div>
+          </div>
+        </a>
+        <button class="add-to-cart" data-product="star" title="Add to Cart">🛒</button>
       </div>
 
       <!-- Product 5 -->
-      <div class="product-card" data-category="kits" onclick="if(!event.target.closest('.add-to-cart')) window.location.href='/products/diy-starter-kit'" style="cursor:pointer">
-        <div class="product-image" style="--bg:linear-gradient(135deg,#9D4EDD,#7B2CBF)">
-          <span class="emoji">🎁</span>
-          <span class="product-tag tag-new">NEW</span>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">DIY Starter Kit</h3>
-          <div class="product-meta">
-            <span class="product-price">$45.00</span>
+      <div class="product-card" data-category="kits" data-url="/products/diy-starter-kit">
+        <a href="/products/diy-starter-kit" class="card-link">
+          <div class="product-image" style="--bg:linear-gradient(135deg,#9D4EDD,#7B2CBF)">
+            <span class="emoji">🎁</span>
+            <span class="product-tag tag-new">NEW</span>
           </div>
-        </div>
-        <button class="add-to-cart" data-product="kit" onclick="event.stopPropagation(); addToCart(this)" title="Add to Cart">🛒</button>
+          <div class="product-info">
+            <h3 class="product-title">DIY Starter Kit</h3>
+            <div class="product-meta">
+              <span class="product-price">$45.00</span>
+            </div>
+          </div>
+        </a>
+        <button class="add-to-cart" data-product="kit" title="Add to Cart">🛒</button>
       </div>
 
       <!-- Product 6 -->
-      <div class="product-card" data-category="sprites" onclick="if(!event.target.closest('.add-to-cart')) window.location.href='/products/pixel-ghost-keychain'" style="cursor:pointer">
-        <div class="product-image" style="--bg:linear-gradient(135deg,#FF2D7D,#C41E3A)">
-          <span class="emoji">👻</span>
-          <span class="product-tag tag-hot">HOT</span>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Ghost Pixel Sprite</h3>
-          <div class="product-meta">
-            <span class="product-price">$25.00</span>
+      <div class="product-card" data-category="sprites" data-url="/products/pixel-ghost-keychain">
+        <a href="/products/pixel-ghost-keychain" class="card-link">
+          <div class="product-image" style="--bg:linear-gradient(135deg,#FF2D7D,#C41E3A)">
+            <span class="emoji">👻</span>
+            <span class="product-tag tag-hot">HOT</span>
           </div>
-        </div>
-        <button class="add-to-cart" data-product="ghost" onclick="event.stopPropagation(); addToCart(this)" title="Add to Cart">🛒</button>
+          <div class="product-info">
+            <h3 class="product-title">Ghost Pixel Sprite</h3>
+            <div class="product-meta">
+              <span class="product-price">$25.00</span>
+            </div>
+          </div>
+        </a>
+        <button class="add-to-cart" data-product="ghost" title="Add to Cart">🛒</button>
       </div>
 
       <!-- Product 7 -->
-      <div class="product-card" data-category="keychains" onclick="if(!event.target.closest('.add-to-cart')) window.location.href='/products/pixel-potion-keychain'" style="cursor:pointer">
-        <div class="product-image" style="--bg:linear-gradient(135deg,#00D9FF,#0099CC)">
-          <span class="emoji">💧</span>
-          <span class="product-tag tag-limited">LIMITED</span>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Blue Potion Keychain</h3>
-          <div class="product-meta">
-            <span class="product-price">$20.00</span>
+      <div class="product-card" data-category="keychains" data-url="/products/pixel-potion-keychain">
+        <a href="/products/pixel-potion-keychain" class="card-link">
+          <div class="product-image" style="--bg:linear-gradient(135deg,#00D9FF,#0099CC)">
+            <span class="emoji">💧</span>
+            <span class="product-tag tag-limited">LIMITED</span>
           </div>
-        </div>
-        <button class="add-to-cart" data-product="potion" onclick="event.stopPropagation(); addToCart(this)" title="Add to Cart">🛒</button>
+          <div class="product-info">
+            <h3 class="product-title">Blue Potion Keychain</h3>
+            <div class="product-meta">
+              <span class="product-price">$20.00</span>
+            </div>
+          </div>
+        </a>
+        <button class="add-to-cart" data-product="potion" title="Add to Cart">🛒</button>
       </div>
 
       <!-- Product 8 -->
-      <div class="product-card" data-category="sprites" onclick="if(!event.target.closest('.add-to-cart')) window.location.href='/products/pixel-leaf-badge'" style="cursor:pointer">
-        <div class="product-image" style="--bg:linear-gradient(135deg,#32CD32,#228B22)">
-          <span class="emoji">🌿</span>
-          <span class="product-tag tag-sale">SALE</span>
-        </div>
-        <div class="product-info">
-          <h3 class="product-title">Leaf Sprite Badge</h3>
-          <div class="product-meta">
-            <span class="product-price"><span class="original">$18</span>$12.00</span>
+      <div class="product-card" data-category="sprites" data-url="/products/pixel-leaf-badge">
+        <a href="/products/pixel-leaf-badge" class="card-link">
+          <div class="product-image" style="--bg:linear-gradient(135deg,#32CD32,#228B22)">
+            <span class="emoji">🌿</span>
+            <span class="product-tag tag-sale">SALE</span>
           </div>
-        </div>
-        <button class="add-to-cart" data-product="leaf" onclick="event.stopPropagation(); addToCart(this)" title="Add to Cart">🛒</button>
+          <div class="product-info">
+            <h3 class="product-title">Leaf Sprite Badge</h3>
+            <div class="product-meta">
+              <span class="product-price"><span class="original">$18</span>$12.00</span>
+            </div>
+          </div>
+        </a>
+        <button class="add-to-cart" data-product="leaf" title="Add to Cart">🛒</button>
       </div>
     </div>
 
@@ -749,7 +765,32 @@ document.addEventListener('DOMContentLoaded', () => {
   initScrollReveal();
   initTestimonialSlider();
   initMarqueePause();
+  initProductClicks();
 });
+
+// Product Card Click Handler
+function initProductClicks() {
+  const grid = document.getElementById('productsGrid');
+  if (!grid) return;
+  
+  grid.addEventListener('click', function(e) {
+    const cartBtn = e.target.closest('.add-to-cart');
+    if (cartBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      addToCart(cartBtn);
+      return;
+    }
+    
+    const card = e.target.closest('.product-card');
+    if (card) {
+      const url = card.dataset.url;
+      if (url) {
+        window.location.href = url;
+      }
+    }
+  });
+}
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
