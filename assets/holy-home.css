@@ -865,9 +865,6 @@
   display: block;
   text-decoration: none;
   color: inherit;
-  position: absolute;
-  inset: 0;
-  z-index: 1;
 }
 
 .card-link:hover {
@@ -980,7 +977,7 @@
   position: absolute;
   bottom: 20px;
   right: 20px;
-  z-index: 2;
+  z-index: 10;
 }
 
 .add-to-cart:hover {
