@@ -861,12 +861,6 @@
   position: relative;
 }
 
-.product-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-
 .product-card.visible {
   opacity: 1;
   transform: translateY(0);
@@ -973,6 +967,7 @@
   position: absolute;
   bottom: 20px;
   right: 20px;
+  z-index: 10;
 }
 
 .add-to-cart:hover {
