@@ -866,10 +866,19 @@
   text-decoration: none;
   color: inherit;
   cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 
 .product-link:hover {
   text-decoration: none;
+}
+
+.product-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
 }
 
 .product-card.visible {
@@ -882,8 +891,7 @@
   box-shadow: 18px 18px 0 rgba(0,0,0,0.15);
 }
 
-.product-link:hover ~ .add-to-cart,
-.add-to-cart:hover {
+.product-card:hover .add-to-cart {
   background: var(--pixel-pink);
 }
 
@@ -979,7 +987,8 @@
   position: absolute;
   bottom: 20px;
   right: 20px;
-  z-index: 10;
+  z-index: 5;
+  pointer-events: auto;
 }
 
 .add-to-cart:hover {
