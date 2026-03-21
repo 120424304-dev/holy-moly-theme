@@ -71,11 +71,13 @@
 </head>
 <body>
   {% comment %} ===== UNIFIED NAVBAR ===== {% endcomment %}
-  <nav class="navbar" id="navbar">
-    <div class="navbar-container">
-      <a href="/" class="navbar-logo" style="display: flex; align-items: center; gap: 10px; font-family: 'Press Start 2P', cursive; font-size: 18px; color: #FFE600; text-decoration: none;">
-        <img src="{{ 'holymoly-bear.png' | asset_url }}" alt="Holy Moly" style="height: 45px; width: auto;">
-        <span>HOLY MOLY</span>
+  <nav class="navbar" id="navbar" style="overflow: visible;">
+    <div class="navbar-container" style="position: relative;">
+      <a href="/" class="navbar-logo" style="display: flex; align-items: flex-start; gap: 15px; font-family: 'Press Start 2P', cursive; font-size: 18px; color: #FFE600; text-decoration: none; margin-top: 10px;">
+        <div style="position: relative; height: 80px; display: flex; align-items: flex-end;">
+          <img src="{{ 'holymoly-bear-top.png' | asset_url }}" alt="Holy Moly" style="height: 140px; width: auto; position: relative; top: 40px; z-index: 1;">
+        </div>
+        <span style="margin-top: 15px;">HOLY MOLY</span>
       </a>
       <ul class="navbar-menu">
         <li><a href="/" class="navbar-link">🏠 HOME</a></li>
