@@ -438,24 +438,24 @@
 
 <div class="login-page">
   <div class="game-console">
-    <h1 class="login-title">PLAYER LOGIN</h1>
-    <p class="login-subtitle">INSERT CREDENTIALS TO CONTINUE</p>
+    <h1 class="login-title">{{ 'login.title' | t }}</h1>
+    <p class="login-subtitle">{{ 'login.subtitle' | t }}</p>
     
     {% form 'customer_login' %}
       {% if form.errors %}
         <div class="error-message">
-          ⚠️ GAME OVER: {{ form.errors | default_errors }}
+          {{ 'login.error_title' | t }} {{ form.errors | default_errors }}
         </div>
       {% endif %}
       
       <div class="pixel-form">
         <div class="form-group">
-          <label class="form-label">📧 EMAIL ADDRESS</label>
+          <label class="form-label">{{ 'login.email_label' | t }}</label>
           <input 
             type="email" 
             name="customer[email]" 
             class="form-input" 
-            placeholder="player@example.com"
+            placeholder="{{ 'login.email_placeholder' | t }}"
             required
             autocorrect="off"
             autocapitalize="off"
@@ -463,14 +463,14 @@
         </div>
         
         <div class="form-group">
-          <label class="form-label">🔐 SECRET CODE</label>
+          <label class="form-label">{{ 'login.password_label' | t }}</label>
           <div class="password-wrapper">
             <input 
               type="password" 
               name="customer[password]" 
               id="password"
               class="form-input" 
-              placeholder="••••••••"
+              placeholder="{{ 'login.password_placeholder' | t }}"
               required
             >
             <button type="button" class="toggle-password" onclick="togglePassword()">👁️</button>
@@ -480,41 +480,41 @@
         <label class="remember-me">
           <input type="checkbox" name="customer[remember]" checked>
           <span class="pixel-checkbox">✓</span>
-          <span class="remember-text">REMEMBER ME</span>
+          <span class="remember-text">{{ 'login.remember_me' | t }}</span>
         </label>
         
         <button type="submit" class="login-btn" onclick="showLoading()">
-          START GAME
+          {{ 'login.submit' | t }}
         </button>
       </div>
     {% endform %}
     
     <div class="login-links">
-      <a href="/account/register" class="pixel-link">🆕 NEW PLAYER?</a>
-      <a href="#recover" onclick="showRecover()" class="pixel-link">🔑 FORGOT CODE?</a>
+      <a href="/account/register" class="pixel-link">{{ 'login.new_player' | t }}</a>
+      <a href="#recover" onclick="showRecover()" class="pixel-link">{{ 'login.forgot_password' | t }}</a>
     </div>
     
     <!-- 社交登录 -->
     <div class="social-login">
-      <div class="social-divider">OR CONTINUE WITH</div>
+      <div class="social-divider">{{ 'login.social_divider' | t }}</div>
       <div class="social-buttons">
         <button class="social-btn discord" onclick="socialLogin('discord')">
-          💬 DISCORD
+          {{ 'login.social_discord' }}
         </button>
       </div>
     </div>
     
     <!-- 注册提示 -->
     <div class="register-prompt">
-      <p class="register-text">NEW TO THE ARCADE?</p>
-      <a href="/account/register" class="register-btn">CREATE ACCOUNT →</a>
+      <p class="register-text">{{ 'login.register_prompt' | t }}</p>
+      <a href="/account/register" class="register-btn">{{ 'login.register_button' | t }}</a>
     </div>
   </div>
 </div>
 
 <!-- 加载遮罩 -->
 <div class="loading-overlay" id="loadingOverlay">
-  <div class="loading-text">LOADING...</div>
+  <div class="loading-text">{{ 'general.loading' | t }}</div>
 </div>
 
 <script>
@@ -536,14 +536,12 @@ function showLoading() {
 
 function socialLogin(provider) {
   if (provider === 'discord') {
-    // Discord OAuth URL
     window.location.href = '/apps/discord/login';
   }
 }
 
 function showRecover() {
-  // 显示密码重置表单
-  alert('Password recovery coming soon!');
+  window.location.href = '/account/login#recover';
 }
 
 // 输入框焦点效果

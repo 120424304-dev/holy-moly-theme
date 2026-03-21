@@ -210,10 +210,10 @@
     <div class="navbar-container">
         <a href="/" class="navbar-logo"><span class="navbar-logo-icon">👾</span><span>HOLY MOLY</span></a>
         <ul class="navbar-menu">
-            <li><a href="/" class="navbar-link">🏠 HOME</a></li>
-            <li><a href="/pages/shop" class="navbar-link active">🛒 SHOP</a></li>
-            <li><a href="/#custom" class="navbar-link">🎨 CUSTOM</a></li>
-            <li><a href="/#features" class="navbar-link">✨ FEATURES</a></li>
+            <li><a href="/" class="navbar-link">{{ 'navigation.home' | t }}</a></li>
+            <li><a href="/pages/shop" class="navbar-link active">{{ 'navigation.shop' | t }}</a></li>
+            <li><a href="/#custom" class="navbar-link">{{ 'navigation.custom' | t }}</a></li>
+            <li><a href="/#features" class="navbar-link">{{ 'navigation.features' | t }}</a></li>
         </ul>
         <div class="navbar-cart" onclick="openCart()">🛒<span class="cart-badge hidden" id="cartBadge">0</span></div>
         <button class="hamburger" onclick="toggleMobileMenu()"><span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span></button>
@@ -221,34 +221,34 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-    <a href="/" class="navbar-link">🏠 HOME</a>
-    <a href="/pages/shop" class="navbar-link active">🛒 SHOP</a>
-    <a href="/#custom" class="navbar-link">🎨 CUSTOM</a>
-    <a href="/#features" class="navbar-link">✨ FEATURES</a>
+    <a href="/" class="navbar-link">{{ 'navigation.home' | t }}</a>
+    <a href="/pages/shop" class="navbar-link active">{{ 'navigation.shop' | t }}</a>
+    <a href="/#custom" class="navbar-link">{{ 'navigation.custom' | t }}</a>
+    <a href="/#features" class="navbar-link">{{ 'navigation.features' | t }}</a>
     <div class="navbar-cart" onclick="openCart(); toggleMobileMenu();">🛒<span class="cart-badge hidden" id="cartBadgeMobile">0</span></div>
 </div>
 
 <div class="shop-page">
     <div class="shop-header">
-        <div class="shop-title">THE LOOT BOX</div>
-        <div class="shop-subtitle">← Scroll to explore →</div>
+        <div class="shop-title">{{ 'shop.title' | t }}</div>
+        <div class="shop-subtitle">{{ 'shop.subtitle' | t }}</div>
     </div>
 
     <div class="control-panel">
-        <div class="pixel-search"><span class="search-icon">🔍</span><input type="text" id="searchInput" placeholder="SEARCH ITEMS..." onkeyup="searchProducts()"></div>
+        <div class="pixel-search"><span class="search-icon">🔍</span><input type="text" id="searchInput" placeholder="{{ 'shop.search_placeholder' | t }}" onkeyup="searchProducts()"></div>
         <div class="filter-chips">
-            <button class="chip active" onclick="filterProducts('all', this)">ALL</button>
-            <button class="chip" onclick="filterProducts('keychain', this)">KEYCHAINS</button>
-            <button class="chip" onclick="filterProducts('magnet', this)">MAGNETS</button>
-            <button class="chip" onclick="filterProducts('diy', this)">DIY KITS</button>
+            <button class="chip active" onclick="filterProducts('all', this)">{{ 'shop.filter_all' | t }}</button>
+            <button class="chip" onclick="filterProducts('keychain', this)">{{ 'shop.filter_keychains' | t }}</button>
+            <button class="chip" onclick="filterProducts('magnet', this)">{{ 'shop.filter_magnets' | t }}</button>
+            <button class="chip" onclick="filterProducts('diy', this)">{{ 'shop.filter_diy' | t }}</button>
         </div>
         <div class="pixel-dropdown" id="sortDropdown">
-            <button class="pixel-dropdown-btn" onclick="toggleDropdown()"><span>🆕</span><span id="sortText">NEWEST</span><span class="dropdown-arrow">▼</span></button>
+            <button class="pixel-dropdown-btn" onclick="toggleDropdown()"><span>🆕</span><span id="sortText">{{ 'shop.sort_newest' | t }}</span><span class="dropdown-arrow">▼</span></button>
             <div class="pixel-dropdown-menu">
-                <div class="dropdown-item active" onclick="selectSort('newest', '🆕', 'NEWEST')"><span>🆕</span><span>NEWEST</span></div>
-                <div class="dropdown-item" onclick="selectSort('price-low', '💰', 'PRICE: LOW TO HIGH')"><span>💰</span><span>PRICE: LOW TO HIGH</span></div>
-                <div class="dropdown-item" onclick="selectSort('price-high', '💎', 'PRICE: HIGH TO LOW')"><span>💎</span><span>PRICE: HIGH TO LOW</span></div>
-                <div class="dropdown-item" onclick="selectSort('popular', '🔥', 'MOST POPULAR')"><span>🔥</span><span>MOST POPULAR</span></div>
+                <div class="dropdown-item active" onclick="selectSort('newest', '🆕', '{{ 'shop.sort_newest' | t }}')"><span>🆕</span><span>{{ 'shop.sort_newest' | t }}</span></div>
+                <div class="dropdown-item" onclick="selectSort('price-low', '💰', '{{ 'shop.sort_price_low' | t }}')"><span>💰</span><span>{{ 'shop.sort_price_low' | t }}</span></div>
+                <div class="dropdown-item" onclick="selectSort('price-high', '💎', '{{ 'shop.sort_price_high' | t }}')"><span>💎</span><span>{{ 'shop.sort_price_high' | t }}</span></div>
+                <div class="dropdown-item" onclick="selectSort('popular', '🔥', '{{ 'shop.sort_popular' | t }}')"><span>🔥</span><span>{{ 'shop.sort_popular' | t }}</span></div>
             </div>
         </div>
     </div>
@@ -262,15 +262,15 @@
             {%- else -%}
                 <div class="empty-shop">
                     <div class="empty-shop-icon">📦</div>
-                    <div class="empty-shop-text">NO PRODUCTS YET</div>
-                    <p style="color: rgba(255,255,255,0.5); font-family: 'Press Start 2P'; font-size: 10px;">Add products in your Shopify admin!</p>
+                    <div class="empty-shop-text">{{ 'shop.empty_title' | t }}</div>
+                    <p style="color: rgba(255,255,255,0.5); font-family: 'Press Start 2P'; font-size: 10px;">{{ 'shop.empty_subtitle' | t }}</p>
                 </div>
             {%- endif -%}
         {%- endpaginate -%}
     </div>
 
     {%- if collections.all.products.size > 0 -%}
-    <div class="load-more-container"><button class="load-more-btn" onclick="loadMoreProducts()">📦 LOAD MORE LOOT</button></div>
+    <div class="load-more-container"><button class="load-more-btn" onclick="loadMoreProducts()">{{ 'shop.load_more' | t }}</button></div>
     {%- endif -%}
 </div>
 
@@ -404,7 +404,7 @@ async function addProductToCart(variantId, name, price, emoji) {
         }
         
     } catch (error) {
-        alert('Failed to add to cart. Please try again.');
+        alert("{{ 'errors.cart_add_failed' | t }}");
     }
 }
 
@@ -450,7 +450,7 @@ function loadMoreProducts() {
     btn.disabled = true;
     
     setTimeout(() => {
-        btn.textContent = '📦 NO MORE LOOT';
+        btn.textContent = "{{ 'shop.load_more' | t }}";
         btn.disabled = true;
     }, 1000);
 }

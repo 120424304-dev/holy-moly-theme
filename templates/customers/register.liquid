@@ -466,16 +466,16 @@
     <!-- 角色预览 -->
     <div class="character-preview">
       <div class="character-icon" id="characterIcon">👾</div>
-      <div class="character-text">CHOOSE YOUR AVATAR</div>
+      <div class="character-text">{{ 'register.avatar_title' | t }}</div>
     </div>
 
-    <h1 class="register-title">NEW PLAYER REGISTRATION</h1>
-    <p class="register-subtitle">CREATE YOUR PLAYER PROFILE</p>
+    <h1 class="register-title">{{ 'register.title' | t }}</h1>
+    <p class="register-subtitle">{{ 'register.subtitle' | t }}</p>
     
     {% form 'create_customer' %}
       {% if form.errors %}
         <div class="error-message">
-          ⚠️ REGISTRATION FAILED:<br>
+          {{ 'register.error_title' | t }}<br>
           {{ form.errors | default_errors }}
         </div>
       {% endif %}
@@ -483,12 +483,12 @@
       <div class="pixel-form">
         <!-- 用户名 -->
         <div class="form-group">
-          <label class="form-label">👤 PLAYER NAME</label>
+          <label class="form-label">{{ 'register.name_label' | t }}</label>
           <input 
             type="text" 
             name="customer[first_name]" 
             class="form-input" 
-            placeholder="Enter your gamer tag"
+            placeholder="{{ 'register.name_placeholder' | t }}"
             required
             maxlength="20"
             oninput="updateCharacter(this.value)"
@@ -497,31 +497,31 @@
         
         <!-- 邮箱 -->
         <div class="form-group">
-          <label class="form-label">📧 EMAIL ADDRESS</label>
+          <label class="form-label">{{ 'register.email_label' | t }}</label>
           <input 
             type="email" 
             name="customer[email]" 
             class="form-input" 
-            placeholder="player@example.com"
+            placeholder="{{ 'register.email_placeholder' | t }}"
             required
             autocorrect="off"
             autocapitalize="off"
           >
           <div class="email-hint">
-            <span>ℹ️</span> We'll send a verification email
+            <span>ℹ️</span> {{ 'register.email_hint' | t }}
           </div>
         </div>
         
         <!-- 密码 -->
         <div class="form-group">
-          <label class="form-label">🔐 SECRET CODE</label>
+          <label class="form-label">{{ 'register.password_label' | t }}</label>
           <div class="password-wrapper">
             <input 
               type="password" 
               name="customer[password]" 
               id="password"
               class="form-input" 
-              placeholder="Min 8 characters"
+              placeholder="{{ 'register.password_placeholder' | t }}"
               required
               minlength="8"
               oninput="checkPasswordStrength(this.value)"
@@ -537,20 +537,20 @@
         
         <!-- 确认密码 -->
         <div class="form-group">
-          <label class="form-label">🔐 CONFIRM SECRET CODE</label>
+          <label class="form-label">{{ 'register.password_confirm_label' | t }}</label>
           <div class="password-wrapper">
             <input 
               type="password" 
               id="passwordConfirm"
               class="form-input" 
-              placeholder="Re-enter your code"
+              placeholder="{{ 'register.password_confirm_placeholder' | t }}"
               required
               oninput="checkPasswordMatch()"
             >
             <button type="button" class="toggle-password" onclick="togglePassword('passwordConfirm')">👁️</button>
           </div>
           <div class="email-hint" id="matchHint" style="color: #FF2D7D; display: none;">
-            <span>❌</span> Codes don't match!
+            <span>❌</span> <span data-key="register.password_match_error">{{ 'register.password_match_error' | t }}</span>
           </div>
         </div>
         
@@ -560,31 +560,29 @@
             <input type="checkbox" name="terms" required onchange="toggleSubmit()">
             <span class="pixel-checkbox">✓</span>
             <span class="checkbox-text">
-              I agree to the <a href="/policies/terms-of-service">Terms of Service</a> and 
-              <a href="/policies/privacy-policy">Privacy Policy</a>. I want to receive 
-              pixel-perfect newsletters and exclusive loot drops!
+              {{ 'register.terms_text' | t }}
             </span>
           </label>
         </div>
         
         <button type="submit" class="register-btn" id="submitBtn" onclick="showLoading()">
-          CREATE ACCOUNT
+          {{ 'register.submit' | t }}
         </button>
       </div>
     {% endform %}
     
     <!-- 返回登录 -->
     <div class="back-to-login">
-      <p class="back-text">ALREADY HAVE AN ACCOUNT?</p>
-      <a href="/account/login" class="login-link">← BACK TO LOGIN</a>
+      <p class="back-text">{{ 'register.already_account' | t }}</p>
+      <a href="/account/login" class="login-link">{{ 'register.back_to_login' | t }}</a>
     </div>
   </div>
 </div>
 
 <!-- 加载遮罩 -->
 <div class="loading-overlay" id="loadingOverlay">
-  <div class="loading-text">CREATING PLAYER...</div>
-  <div class="loading-subtext">Please wait while we set up your profile</div>
+  <div class="loading-text">{{ 'register.loading_title' | t }}</div>
+  <div class="loading-subtext">{{ 'register.loading_subtitle' | t }}</div>
 </div>
 
 <script>
@@ -626,15 +624,15 @@ function checkPasswordStrength(password) {
   
   if (strength <= 1) {
     value.classList.add('weak');
-    text.textContent = 'WEAK - Add numbers & symbols';
+    text.textContent = "{{ 'register.password_strength_weak' | t }}";
     text.style.color = '#FF2D7D';
   } else if (strength === 2) {
     value.classList.add('medium');
-    text.textContent = 'MEDIUM - Getting better!';
+    text.textContent = "{{ 'register.password_strength_medium' | t }}";
     text.style.color = '#FFE600';
   } else {
     value.classList.add('strong');
-    text.textContent = 'STRONG - Perfect code!';
+    text.textContent = "{{ 'register.password_strength_strong' | t }}";
     text.style.color = '#00FF00';
   }
 }
@@ -673,7 +671,6 @@ function toggleSubmit() {
 
 // 显示加载
 function showLoading() {
-  // 验证密码匹配
   var password = document.getElementById('password').value;
   var confirm = document.getElementById('passwordConfirm').value;
   

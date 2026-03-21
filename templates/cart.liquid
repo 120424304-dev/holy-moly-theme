@@ -398,8 +398,8 @@
 <div class="cart-page">
   <div class="cart-container">
     <div class="cart-header">
-      <h1 class="cart-title">🛒 YOUR LOOT BOX</h1>
-      <p class="cart-subtitle">REVIEW YOUR ITEMS BEFORE CHECKOUT</p>
+      <h1 class="cart-title">{{ 'cart.title' | t }}</h1>
+      <p class="cart-subtitle">{{ 'cart.subtitle' | t }}</p>
     </div>
 
     <div class="game-console">
@@ -425,7 +425,7 @@
               
               <div style="display: flex; align-items: center;">
                 <div class="item-price">{{ item.line_price | money }}</div>
-                <a href="/cart/change?line={{ forloop.index }}&quantity=0" class="remove-btn">✕</a>
+                <a href="/cart/change?line={{ forloop.index }}&quantity=0" class="remove-btn">{{ 'cart.remove' | t }}</a>
               </div>
             </div>
           {% endfor %}
@@ -435,36 +435,36 @@
         <div class="cart-footer">
           <!-- 优惠券 -->
           <div class="coupon-section">
-            <div class="coupon-title">🎟️ SECRET CODE (COUPON)</div>
+            <div class="coupon-title">{{ 'cart.coupon_title' | t }}</div>
             <div class="coupon-input-group">
-              <input type="text" class="coupon-input" placeholder="ENTER CODE">
-              <button class="coupon-btn">APPLY</button>
+              <input type="text" class="coupon-input" placeholder="{{ 'cart.coupon_placeholder' | t }}">
+              <button class="coupon-btn">{{ 'cart.coupon_button' | t }}</button>
             </div>
           </div>
 
           <!-- 金额结算 -->
           <div class="summary-card">
-            <div class="summary-title">💰 ORDER SUMMARY</div>
+            <div class="summary-title">{{ 'cart.summary_title' | t }}</div>
             
             <div class="summary-row">
-              <span class="summary-label">Subtotal</span>
+              <span class="summary-label">{{ 'cart.subtotal' | t }}</span>
               <span class="summary-value">{{ cart.total_price | money }}</span>
             </div>
             
             <div class="summary-row">
-              <span class="summary-label">Shipping</span>
-              <span class="summary-value">Calculated at checkout</span>
+              <span class="summary-label">{{ 'cart.shipping' | t }}</span>
+              <span class="summary-value">{{ 'cart.shipping_calculated' | t }}</span>
             </div>
             
             {% if cart.total_discounts > 0 %}
               <div class="summary-row">
-                <span class="summary-label">Discount</span>
+                <span class="summary-label">{{ 'cart.discount' | t }}</span>
                 <span class="summary-value discount">-{{ cart.total_discounts | money }}</span>
               </div>
             {% endif %}
             
             <div class="summary-row total">
-              <span class="summary-label">TOTAL</span>
+              <span class="summary-label">{{ 'cart.total' | t }}</span>
               <span class="summary-value total-value">{{ cart.total_price | money }}</span>
             </div>
 
@@ -472,29 +472,29 @@
   <input type="hidden" name="utf8" value="✓">
   <input type="hidden" name="authenticity_token" value="{{ form.authenticity_token }}">
   <button type="submit" name="checkout" class="checkout-btn">
-    ▶ PROCEED TO CHECKOUT
+    {{ 'cart.checkout' | t }}
   </button>
 </form>
 
             <div class="continue-shopping">
-              <a href="/pages/shop" class="continue-link">← CONTINUE SHOPPING</a>
+              <a href="/pages/shop" class="continue-link">{{ 'cart.continue_shopping' | t }}</a>
             </div>
           </div>
         </div>
 
         <!-- 信任徽章 -->
         <div class="trust-badges">
-          <div class="trust-badge">🔒 Secure Checkout</div>
-          <div class="trust-badge">🚚 Free Shipping over $72</div>
-          <div class="trust-badge">✨ Handmade with Love</div>
+          <div class="trust-badge">{{ 'cart.trust_secure' | t }}</div>
+          <div class="trust-badge">{{ 'cart.trust_shipping' | t }}</div>
+          <div class="trust-badge">{{ 'cart.trust_handmade' | t }}</div>
         </div>
 
       {% else %}
         <!-- 空购物车 -->
         <div class="empty-cart">
-          <div class="empty-icon">📭</div>
-          <div class="empty-text">YOUR LOOT BOX IS EMPTY!</div>
-          <a href="/pages/shop" class="continue-btn">GO SHOPPING →</a>
+          <div class="empty-icon">{{ 'cart.empty_icon' | t }}</div>
+          <div class="empty-text">{{ 'cart.empty_title' | t }}</div>
+          <a href="/pages/shop" class="continue-btn">{{ 'cart.empty_button' | t }}</a>
         </div>
       {% endif %}
     </div>
@@ -503,16 +503,13 @@
 
 <script>
 function updateQty(line, change) {
-  // 这里可以添加 AJAX 更新数量的逻辑
-  // 暂时用表单提交
   var currentQty = parseInt(event.target.parentElement.querySelector('.qty-input').value);
   var newQty = currentQty + change;
   if (newQty < 1) newQty = 1;
   
-  // 刷新页面更新数量
   window.location.href = '/cart/change?line=' + line + '&quantity=' + newQty;
 }
-// 强制绑定结算按钮
+
 document.querySelector('.checkout-btn').addEventListener('click', function(e) {
   e.preventDefault();
   window.location.href = '/checkout';

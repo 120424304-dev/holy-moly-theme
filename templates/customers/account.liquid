@@ -323,40 +323,40 @@
 
 <div class="account-page">
   <div class="account-container">
-    <div class="welcome-text">★ WELCOME BACK ★</div>
-    <h1 class="player-name">PLAYER {{ customer.first_name | upcase }}</h1>
+    <div class="welcome-text">{{ 'account.welcome' | t }}</div>
+    <h1 class="player-name">{{ 'account.player_name' | t: name: customer.first_name | upcase }}</h1>
     
     <div class="player-stats">
       <div class="stat-box">
         <div class="stat-icon">🏆</div>
         <div class="stat-value">Lv.{{ customer.orders_count | plus: 1 }}</div>
-        <div class="stat-label">LEVEL</div>
+        <div class="stat-label">{{ 'account.level' | t }}</div>
       </div>
       <div class="stat-box">
         <div class="stat-icon">🎮</div>
         <div class="stat-value">{{ customer.orders_count }}</div>
-        <div class="stat-label">QUESTS</div>
+        <div class="stat-label">{{ 'account.quests' | t }}</div>
       </div>
       <div class="stat-box">
         <div class="stat-icon">💰</div>
         <div class="stat-value">${{ customer.total_spent | money_without_currency }}</div>
-        <div class="stat-label">LOOT SPENT</div>
+        <div class="stat-label">{{ 'account.loot_spent' | t }}</div>
       </div>
     </div>
 
     <div class="game-console">
       <div class="console-header">
-        <div class="console-title">📟 PLAYER PROFILE</div>
-        <div class="level-badge">RANK: PIXEL MASTER</div>
+        <div class="console-title">{{ 'account.profile_title' | t }}</div>
+        <div class="level-badge">{{ 'account.rank' | t }}</div>
       </div>
 
       <div class="character-selector">
         <div class="current-avatar">
           <div class="avatar-display">👾</div>
-          <div class="avatar-label">CURRENT AVATAR</div>
+          <div class="avatar-label">{{ 'account.avatar_label' | t }}</div>
         </div>
         <div>
-          <div class="avatar-title">🎨 CHOOSE YOUR CHARACTER:</div>
+          <div class="avatar-title">{{ 'account.choose_character' | t }}</div>
           <div class="avatar-grid">
             <div class="avatar-option selected">👾</div>
             <div class="avatar-option">🤖</div>
@@ -369,8 +369,8 @@
 
       <div class="xp-section">
         <div class="xp-header">
-          <div>📊 XP PROGRESS</div>
-          <div>150 / 500 XP</div>
+          <div>{{ 'account.xp_title' | t }}</div>
+          <div>{{ 'account.xp_progress' | t }}</div>
         </div>
         <div class="xp-bar-container">
           <div class="xp-bar"></div>
@@ -379,29 +379,29 @@
     </div>
 
     <div class="game-console">
-      <div class="section-title">📜 QUEST LOG (ORDER HISTORY)</div>
+      <div class="section-title">{{ 'account.orders_title' | t }}</div>
       <div class="empty-orders">
         <div class="empty-icon">📭</div>
-        <div class="empty-text">NO QUESTS COMPLETED YET</div>
-        <a href="/pages/shop" class="shop-btn">START SHOPPING →</a>
+        <div class="empty-text">{{ 'account.orders_empty' | t }}</div>
+        <a href="/pages/shop" class="shop-btn">{{ 'account.shop_button' | t }}</a>
       </div>
     </div>
 
     <div class="game-console">
-      <div class="section-title">📝 PLAYER INFO</div>
+      <div class="section-title">{{ 'account.info_title' | t }}</div>
       <div class="info-section">
         <div class="info-card">
-          <div class="info-label">Player Name</div>
+          <div class="info-label">{{ 'account.info_name' | t }}</div>
           <div class="info-value">{{ customer.first_name }} {{ customer.last_name }}</div>
         </div>
         <div class="info-card">
-          <div class="info-label">Player ID (Email)</div>
+          <div class="info-label">{{ 'account.info_email' | t }}</div>
           <div class="info-value">{{ customer.email }}</div>
         </div>
       </div>
       <div class="action-buttons">
-        <a href="/account/addresses" class="action-btn edit">📍 MANAGE ADDRESSES</a>
-        <a href="/account/logout" class="action-btn logout">🚪 EXIT GAME</a>
+        <a href="/account/addresses" class="action-btn edit">{{ 'account.manage_addresses' | t }}</a>
+        <a href="/account/logout" class="action-btn logout">{{ 'account.exit_game' | t }}</a>
       </div>
     </div>
   </div>
